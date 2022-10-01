@@ -21,7 +21,8 @@ theme.bg_minimize = theme.bg_focus
 theme.bg_systray = theme.bg_normal
 
 -- theme.fg_normal = "#4ee673"
-theme.fg_normal = "#26CDBF"
+-- theme.fg_normal = "#26CDBF"
+theme.fg_normal = "#9fccff"
 theme.fg_focus = theme.fg_normal
 theme.fg_urgent = theme.fg_normal
 theme.fg_minimize = theme.fg_normal
@@ -29,7 +30,8 @@ theme.fg_minimize = theme.fg_normal
 theme.wibar_opacity = 0.95
 
 -- theme.taglist_fg_occupied = "#267b3b"
-theme.taglist_fg_occupied = "#4A8782"
+-- theme.taglist_fg_occupied = "#4A8782"
+theme.taglist_fg_occupied = "#5a63f7"
 
 theme.useless_gap = dpi(1)
 theme.border_width = dpi(1)

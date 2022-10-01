@@ -429,8 +429,8 @@ awful.keyboard.append_global_keybindings({
 		awful.spawn("librewolf")
 	end, { description = "run librewolf", group = "user" }),
 	awful.key({ modkey }, "p", function()
-		awful.spawn(terminal .. " ranger")
-	end, { description = "run Ranger", group = "user" }),
+		awful.spawn(terminal .. " lf")
+	end, { description = "run lf", group = "user" }),
 	awful.key({ modkey, "Shift" }, "p", function()
 		awful.spawn("pcmanfm")
 	end, { description = "run PCManFM", group = "user" }),
