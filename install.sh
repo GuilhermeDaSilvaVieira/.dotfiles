@@ -2,7 +2,7 @@
 cd ~/.config/
 rm awesome fish kitty nvim picom ranger rofi -rf
 
-# Simlink everything
+# Symlink everything
 ln -sf ~/.dotfiles/awesome/ ~/.config/awesome
 ln -sf ~/.dotfiles/fish/ ~/.config/fish
 ln -sf ~/.dotfiles/kitty/ ~/.config/kitty

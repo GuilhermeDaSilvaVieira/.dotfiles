@@ -98,9 +98,4 @@ return packer.startup(function(use)
 
 	-- Color Highlighter
 	use({ "norcalli/nvim-colorizer.lua" })
-
-	-- Debug
-	-- use({ "mfussenegger/nvim-dap", commit = "014ebd53612cfd42ac8c131e6cec7c194572f21d" })
-	-- use({ "rcarriga/nvim-dap-ui", commit = "d76d6594374fb54abf2d94d6a320f3fd6e9bb2f7" })
-	-- use({ "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" })
 end)

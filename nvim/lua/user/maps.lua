@@ -44,14 +44,6 @@ nmap("<space>e", ":NvimTreeToggle<CR>")
 -- Trouble
 nmap("<space>q", ":TroubleToggle<CR>")
 
--- Debugger
--- nmap("<space>dt","<cmd>lua require('dapui').toggle()<CR>")
--- nmap("<space>dc", "<cmd>lua require'dap'.continue()<CR>")
--- nmap("<space>dv", "<cmd>lua require'dap'.step_over()<CR>")
--- nmap("<space>di", "<cmd>lua require'dap'.step_into()<CR>")
--- nmap("<space>do", "<cmd>lua require'dap'.step_out()<CR>")
--- nmap("<space>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>")
-
 -- Insert --
 -- Escape mais acessivel
 imap("jk", "<ESC>")
@@ -65,3 +57,5 @@ vmap(">", ">gv")
 vmap("<A-j>", ":m +2<CR>gv")
 vmap("<A-k>", ":m -2<CR>gv")
 
+-- Substituição
+vim.api.nvim_set_keymap('n', '<space>s', ":%s ///gc<Left><Left><Left><Left>", {noremap = true, silent = false})
