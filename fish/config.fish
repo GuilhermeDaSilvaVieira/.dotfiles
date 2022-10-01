@@ -4,8 +4,8 @@ end
 
 export FZF_DEFAULT_COMMAND="fd -H"
 export BROWSER="/usr/bin/librewolf"
-fish_add_path "/home/guilherme/Dev/Flutter/SDK/flutter/bin/"
-fish_add_path "/home/guilherme/.cargo/bin/"
+fish_add_path "$HOME/Dev/Flutter/SDK/flutter/bin/"
+fish_add_path "$HOME/.cargo/bin/"
 
 alias l "exa -la --sort=type"
 alias v "nvim"
