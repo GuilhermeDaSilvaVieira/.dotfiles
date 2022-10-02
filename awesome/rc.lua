@@ -429,7 +429,7 @@ awful.keyboard.append_global_keybindings({
 		awful.spawn("librewolf")
 	end, { description = "run librewolf", group = "user" }),
 	awful.key({ modkey }, "p", function()
-		awful.spawn(terminal .. " lf")
+		awful.spawn(terminal .. " -e fish -c lf")
 	end, { description = "run lf", group = "user" }),
 	awful.key({ modkey, "Shift" }, "p", function()
 		awful.spawn("pcmanfm")
@@ -445,7 +445,7 @@ awful.keyboard.append_global_keybindings({
 		else
 			awful.spawn("xrandr --output DP-0 --mode 2560x1440 --scale 1x1")
 		end
-	end, { description = "scale between 1x1 and 0.75x0.75", group = "user" }),
+	end, { description = "switch resolution from 4k to 2k", group = "user" }),
 	awful.key({ modkey }, "=", function()
 		awful.spawn("amixer -D pulse sset Master 2%+")
 		show_volume_percent_notification()

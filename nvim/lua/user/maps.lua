@@ -59,3 +59,6 @@ vmap("<A-k>", ":m -2<CR>gv")
 
 -- Substituição
 vim.api.nvim_set_keymap('n', '<space>s', ":%s ///gc<Left><Left><Left><Left>", {noremap = true, silent = false})
+
+-- Buffer change
+vim.api.nvim_set_keymap('n', '<space>b', ":b ", {noremap = true, silent = false})
