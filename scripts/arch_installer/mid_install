@@ -22,6 +22,9 @@ nvim /etc/default/grub
 mkdir -p /boot/EFI
 mount /dev/vda1 /boot/EFI
 
+lsblk -f
+read
+
 grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable --now NetworkManager
