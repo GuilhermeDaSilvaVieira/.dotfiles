@@ -1,0 +1,75 @@
+loadkeys br-abnt2
+timedatectl set-ntp true
+
+# Formatar
+# fdisk /dev/sda
+# g
+# n
+# t
+# +550M 1
+# +4G 19
+# +resto
+# w
+# fdisk /dev/sdb
+# g
+# n
+fdisk /dev/vda
+
+# mkfs.ext4 /dev/sda3
+# mkfs.fat -F32 /dev/sda1
+# mkfs.ext4 /dev/sdb1
+# mkswap /dev/sda2
+# swapon /dev/sda2
+# mount /dev/sda3 /mnt
+# mkdir -p /mnt/boot/EFI
+# mount /dev/sda1 /mnt/boot/EFI
+# mkdir -p /mnt/home
+# mount /dev/sdb1 /mnt/home
+
+mkfs.ext4 /dev/vda3
+mkfs.fat -F32 /dev/vda1
+mkswap /dev/vda2
+swapon /dev/vda2
+mount /dev/vda3 /mnt
+mkdir -p /mnt/boot/EFI
+mount /dev/vda1 /mnt/boot/EFI
+
+lsblk -f
+read
+pacstrap /mnt base linux linux-firmware
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime
+hwclock --systohc
+echo 'pt_BR.UTF-8 UTF-8' >> /etc/locale.gen
+locale-gen
+echo 'LANG=pt_BR.UTF-8' >> /etc/locale.conf
+echo 'KEYMAP=br-abnt2' >> /etc/vconsole.conf
+echo 'arch' >> /etc/hostname
+passwd
+pacman -S --noconfirm --needed doas neovim grub efibootmgr dosfstools os-prober
+pacman -S --noconfirm --needed nvidia xorg xorg-xinit kitty feh picom rofi fzf
+pacman -S --noconfirm --needed base-devel mpv btop cmatrix mtools networkmanager
+pacman -S --noconfirm --needed lf fish neofetch
+pacman -Rsn --noconfirm sudo
+echo 'permit :wheel' >> /etc/doas.conf
+chsh -s /bin/fish
+nvim /etc/default/grub
+grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+grub-mkconfig -o /boot/grub/grub.cfg
+systemctl enable NetworkManager
+useradd -m fresh
+usermod -G wheel,audio,video,optical,storage -a fresh
+passwd fresh
+useradd -m sangrito
+usermod -G wheel,audio,video,optical,storage -a sangrito
+passwd sangrito
+# git clone https://aur.archlinux.org/yay.git
+# cd yay
+# makepkg -si
+# cd ..
+# rm yay -rf
+# yay -S --noconfirm --needed awesome-git nvim-packer-git librewolf-bin ttf-ms-fonts
+# yay -Rsn (yay -Qtdq)
+umount -R /mnt
+reboot

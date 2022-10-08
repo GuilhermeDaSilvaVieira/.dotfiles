@@ -14,10 +14,12 @@ set.smartcase = true
 set.cursorline = true
 set.cmdheight = 0
 set.ignorecase = true
-set.showtabline = 2
+--[[ set.showtabline = 2 ]]
 set.showmode = false
 set.undofile = true
 set.timeoutlen = 1000
+set.ls = 0
+set.winbar = "%f"
 
 vim.cmd([[
 colorscheme cobalt2

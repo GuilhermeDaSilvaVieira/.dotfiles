@@ -7,10 +7,10 @@ require("user.lsp")
 require("user.treesitter")
 require("user.comment")
 require("user.gitsigns")
-require("user.bufferline")
+--[[ require("user.bufferline") ]]
 require("user.toggleterm")
 require("user.lualine")
 require("user.nvim-tree")
-require("user.flutter")
+--[[ require("user.flutter") ]]
 require("user.trouble")
 require("colorizer").setup()

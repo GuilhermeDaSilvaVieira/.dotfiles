@@ -1,20 +1,21 @@
-﻿if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
+﻿# if status is-interactive
+#     # Commands to run in interactive sessions can go here
+# end
+
+alias l "exa -la --sort=type"
+alias v "nvim"
+alias cat "bat"
+alias lf "~/.dotfiles/lf/lfrun"
+
+fish_add_path ~/.dotfiles/scripts/
+
+set fish_greeting
 
 export FZF_DEFAULT_COMMAND="fd -H"
 export BROWSER="/usr/bin/librewolf"
 export EDITOR="nvim"
 export READER="zathura"
 
-alias l "exa -la --sort=type"
-alias v "nvim"
-alias cat "bat"
-alias lf "~/.config/lf/lfrun"
-
-set fish_greeting
-
-# lf icons
 export LF_ICONS="\
 tw=:\
 st=:\
