@@ -5,3 +5,4 @@ cd ..
 rm yay-bin -rf
 yay -S --noconfirm --needed awesome-git nvim-packer-git librewolf-bin ttf-ms-fonts
 yay -Rsn (yay -Qtdq)
+reboot
