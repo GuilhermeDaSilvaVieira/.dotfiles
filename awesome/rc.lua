@@ -449,7 +449,7 @@ awful.keyboard.append_global_keybindings({
     if scale then
       awful.spawn("xrandr --output DP-0 --mode 3840x2160 --scale 1x1")
     else
-      awful.spawn("xrandr --output DP-0 --mode 2560x1440 --scale 1x1")
+      awful.spawn("xrandr --output DP-0 --mode 1920x1080 --scale 1x1")
     end
   end, { description = "switch resolution from 4k to 2k", group = "user" }),
   awful.key({ modkey }, "=", function()
@@ -464,10 +464,6 @@ awful.keyboard.append_global_keybindings({
     awful.spawn("amixer -D pulse sset Master toggle")
     show_volume_on_or_off_notification()
   end, { description = "mute / unmute", group = "user" }),
-  awful.key({ modkey, "Shift" }, "w", function()
-    -- awful.spawn("rofi -show p -modi p:rofi-power-menu")
-    awful.spawn("fish -c ~/.config/rofi/powermenu/type-2/powermenu.sh")
-  end, { description = "Launches power menu", group = "user" }),
 })
 
 awful.keyboard.append_global_keybindings({

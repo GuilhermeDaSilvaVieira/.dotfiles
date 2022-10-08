@@ -1,5 +1,6 @@
-doas chsh -s /bin/fish
-doas systemctl enable --now libvirt
+chsh -s /bin/fish
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install
+fish install --path=~/.local/share/omf --config=~/.config/omf
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 makepkg -si
@@ -7,4 +8,7 @@ cd ..
 rm yay-bin -rf
 yay -S --noconfirm --needed awesome-git nvim-packer-git librewolf-bin ttf-ms-fonts
 yay -Rsn (yay -Qtdq)
+cp /etc/X11/xinit/xinitrc ~/.xinitrc
+nvim ~/.xinitrc
+~/.dotfiles/scripts/install
 reboot

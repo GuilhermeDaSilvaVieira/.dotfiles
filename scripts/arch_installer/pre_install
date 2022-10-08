@@ -44,32 +44,3 @@ read
 pacstrap /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
-ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime
-hwclock --systohc
-echo 'pt_BR.UTF-8 UTF-8' >> /etc/locale.gen
-locale-gen
-echo 'LANG=pt_BR.UTF-8' >> /etc/locale.conf
-echo 'KEYMAP=br-abnt2' >> /etc/vconsole.conf
-echo 'arch' >> /etc/hostname
-echo '\n root password \n'
-passwd
-pacman -S --noconfirm --needed doas neovim grub efibootmgr dosfstools os-prober
-pacman -S --noconfirm --needed nvidia xorg xorg-xinit kitty feh picom rofi fzf
-pacman -S --noconfirm --needed base-devel mpv btop cmatrix mtools networkmanager
-pacman -S --noconfirm --needed lf fish neofetch bat pulseaudio exa
-pacman -Rsn --noconfirm sudo
-echo 'permit :wheel' >> /etc/doas.conf
-chsh -s /bin/fish
-nvim /etc/default/grub
-grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
-grub-mkconfig -o /boot/grub/grub.cfg
-systemctl enable NetworkManager
-useradd -m fresh
-usermod -G wheel,audio,video,optical,storage -a fresh
-echo '\n fresh password \n'
-passwd fresh
-useradd -m sangrito
-usermod -G wheel,audio,video,optical,storage -a sangrito
-echo '\n sangrito password \n'
-passwd sangrito
-umount -R /mnt

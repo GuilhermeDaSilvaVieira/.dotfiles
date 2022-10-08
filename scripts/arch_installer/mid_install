@@ -9,10 +9,10 @@ echo '\n root password \n'
 passwd
 pacman -S --noconfirm --needed doas neovim grub efibootmgr dosfstools os-prober
 pacman -S --noconfirm --needed nvidia xorg xorg-xinit kitty feh picom rofi fzf
-pacman -S --noconfirm --needed base-devel mpv btop cmatrix mtools networkmanager
+pacman -S --noconfirm --needed base-devel mpv btop mtools networkmanager stylua
 pacman -S --noconfirm --needed lf fish neofetch bat pulseaudio exa zathura cups
 pacman -S --noconfirm --needed zathura-pdf-poppler discord dnsmasq qemu ebtables
-pacman -S --noconfirm --needed virt-manager cmatrix
+pacman -S --noconfirm --needed virt-manager gimp libreoffice-still rustup
 pacman -Rsn --noconfirm sudo
 echo 'permit :wheel' >> /etc/doas.conf
 chsh -s /bin/fish
@@ -28,6 +28,7 @@ read
 grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable --now NetworkManager
+systemctl enable --now libvirt
 useradd -m fresh
 usermod -G wheel,audio,video,optical,storage,libvirt -a fresh
 echo '\n fresh password \n'
@@ -36,4 +37,5 @@ useradd -m sangrito
 usermod -G wheel,audio,video,optical,storage,libvirt -a sangrito
 echo '\n sangrito password \n'
 passwd sangrito
-umount -R /mnt
+exit
+reboot
