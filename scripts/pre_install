@@ -1,11 +1,11 @@
 loadkeys br-abnt2
 timedatectl set-ntp true
 
-# Format
+# Partition
 # fdisk /dev/sda #g n t +550M 1 +4G 19 +resto w
 # fdisk /dev/sdb # g n +resto w
 
-# Partition
+# Root
 # mkfs.ext4 /dev/sda3
 # mount /dev/sda3 /mnt
 

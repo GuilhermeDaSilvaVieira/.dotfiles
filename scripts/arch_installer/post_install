@@ -1,3 +1,5 @@
+doas chsh -s /bin/fish
+doas systemctl enable --now libvirt
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 makepkg -si
