@@ -7,7 +7,7 @@ timedatectl set-ntp true
 # Format
 fdisk /dev/sda # /boot/EFI [SWAP] /
 fdisk /dev/nvme0n1 # /home
-fdisk /dev/sdb # /extra
+# fdisk /dev/sdb # /extra
 
 # Partition
 mkfs.ext4 /dev/sda3
@@ -33,7 +33,7 @@ mount /dev/nvme0n1p1 /mnt/home
 # mount /dev/sdb1 /mnt/extra
 
 # External Media
-mkdir -p /mnt/media
+# mkdir -p /mnt/media
 
 # Prints partition table
 lsblk -f

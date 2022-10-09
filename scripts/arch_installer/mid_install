@@ -9,11 +9,14 @@ passwd
 # Host name
 echo 'arch' >> /etc/hostname
 
+# Installs neovim
+pacman -Sy --noconfirm --needed neovim
+
 # Open multilib
-vim /etc/pacman.conf
+nvim /etc/pacman.conf
 
 # Install all needed packages
-pacman -Sy --noconfirm --needed doas neovim grub efibootmgr dosfstools mtools\
+pacman -Sy --noconfirm --needed doas grub efibootmgr dosfstools mtools\
  os-prober nvidia xorg xorg-xinit kitty feh picom rofi fzf base-devel mpv btop\
  networkmanager stylua lf fish neofetch bat pulseaudio exa zathura cups rustup\
  zathura-pdf-poppler discord dnsmasq qemu virt-manager gimp libreoffice-still\
@@ -58,24 +61,14 @@ systemctl enable NetworkManager
 # Enable virtual machine
 systemctl enable libvirtd
 
-# Create an external media group
-# groupadd external
-
 # Work user
-# useradd -m -G wheel,audio,video,optical,storage,libvirt,external -s /bin/fish work
 useradd -m -G wheel,audio,video,optical,storage,libvirt -s /bin/fish work
 echo 'Work'
 passwd work
 
 # Fun user
-# useradd -m -G wheel,audio,video,optical,storage,libvirt,external -s /bin/fish fun
 useradd -m -G wheel,audio,video,optical,storage,libvirt -s /bin/fish fun
 echo 'Fun'
 passwd fun
-
-# Makes accessible to external group
-# chgrp -R external /extra/
-# chmod -R 775 /extra/
-# setfacl -dR -m g:external:rwx /extra
 
 reboot
