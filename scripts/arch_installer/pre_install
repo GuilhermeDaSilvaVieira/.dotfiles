@@ -33,8 +33,6 @@ mkdir -p /mnt/extra
 mount /dev/sdb1 /mnt/extra
 
 lsblk -f
-read
-
 pacstrap /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
