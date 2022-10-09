@@ -6,7 +6,8 @@ cd yay-bin
 makepkg -si
 cd ..
 rm yay-bin -rf
-yay -S --noconfirm --needed awesome-git nvim-packer-git librewolf-bin ttf-ms-fonts
+yay -S --noconfirm --needed awesome-git nvim-packer-git librewolf-bin\
+ ttf-ms-fonts tradingview-bin
 yay -Rsn (yay -Qtdq)
 cp /etc/X11/xinit/xinitrc ~/.xinitrc
 nvim ~/.xinitrc

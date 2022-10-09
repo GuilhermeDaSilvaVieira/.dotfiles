@@ -1,42 +1,36 @@
+# Change Keyboard
 loadkeys br-abnt2
+
+# Sync Time
 timedatectl set-ntp true
 
 # Format
-# fdisk /dev/sda #g n t +550M 1 +4G 19 +resto w
-# fdisk /dev/sdb # g n +resto w
+fdisk /dev/sda # /boot/EFI [SWAP] /
+fdisk /dev/nvme0n1 # /home
+fdisk /dev/sdb # /extra
 
 # Partition
-# mkfs.ext4 /dev/sda3
-# mount /dev/sda3 /mnt
+mkfs.ext4 /dev/sda3
+mount /dev/sda3 /mnt
 
 # Boot
-# mkfs.fat -F32 /dev/sda1
-# mkdir -p /mnt/boot/EFI
-# mount /dev/sda1 /mnt/boot/EFI
+mkfs.fat -F32 /dev/sda1
+mkdir -p /mnt/boot/EFI
+mount /dev/sda1 /mnt/boot/EFI
 
 # Swap
-# mkswap /dev/sda2
-# swapon /dev/sda2
+mkswap /dev/sda2
+swapon /dev/sda2
 
 # Home
-# mkfs.ext4 /dev/sdb1
-# mkdir -p /mnt/home
-# mount /dev/sdb1 /mnt/home
+mkfs.ext4 /dev/nvme0n1p1
+mkdir -p /mnt/home
+mount /dev/nvme0n1p1 /mnt/home
 
-# Format in VM
-fdisk /dev/vda
-
-# Partitions in VM
-# Boot
-mkfs.fat -F32 /dev/vda1
-mkdir -p /mnt/boot/EFI
-mount /dev/vda1 /mnt/boot/EFI
-# Swap
-mkswap /dev/vda2
-swapon /dev/vda2
-# File system
-mkfs.ext4 /dev/vda3
-mount /dev/vda3 /mnt
+# Extra
+mkfs.ext4 /dev/sdb1
+mkdir -p /mnt/extra
+mount /dev/sdb1 /mnt/extra
 
 lsblk -f
 read

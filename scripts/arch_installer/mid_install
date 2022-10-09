@@ -7,24 +7,22 @@ echo 'KEYMAP=br-abnt2' >> /etc/vconsole.conf
 echo 'arch' >> /etc/hostname
 echo '\n root password \n'
 passwd
-pacman -S --noconfirm --needed doas neovim grub efibootmgr dosfstools os-prober
-pacman -S --noconfirm --needed nvidia xorg xorg-xinit kitty feh picom rofi fzf
-pacman -S --noconfirm --needed base-devel mpv btop mtools networkmanager stylua
-pacman -S --noconfirm --needed lf fish neofetch bat pulseaudio exa zathura cups
-pacman -S --noconfirm --needed zathura-pdf-poppler discord dnsmasq qemu ebtables
-pacman -S --noconfirm --needed virt-manager gimp libreoffice-still rustup
+vim /etc/pacman.conf
+pacman -Sy --noconfirm --needed doas neovim grub efibootmgr dosfstools mtools\
+ os-prober nvidia xorg xorg-xinit kitty feh picom rofi fzf base-devel mpv btop\
+ networkmanager stylua lf fish neofetch bat pulseaudio exa zathura cups rustup\
+ zathura-pdf-poppler discord dnsmasq qemu virt-manager gimp libreoffice-still\
+ ebtables gnu-free-fonts noto-fonts ttf-dejavu ttf-droid ttf-fira-code\
+ ttf-iosevka-nerd ttf-lato ttf-nerd-fonts-symbols-common ttf-liberation\
+ ueberzug ffmpegthumbnailer
 pacman -Rsn --noconfirm sudo
 echo 'permit :wheel' >> /etc/doas.conf
 chsh -s /bin/fish
 nvim /etc/default/grub
-
-# VM
 mkdir -p /boot/EFI
-mount /dev/vda1 /boot/EFI
-
+mount /dev/sda1 /boot/EFI
 lsblk -f
 read
-
 grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable --now NetworkManager
