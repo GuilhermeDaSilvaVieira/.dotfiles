@@ -1,38 +1,57 @@
+# Links to your timezone
 ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime
 hwclock --systohc
+
+echo '\n root password \n'
+passwd
+
+# Opens multilib
+vim /etc/pacman.conf
+
+pacman -Sy --noconfirm --needed doas neovim grub efibootmgr dosfstools mtools\
+ os-prober nvidia xorg xorg-xinit kitty feh picom rofi fzf base-devel mpv btop\
+ networkmanager stylua lf fish neofetch bat pulseaudio exa zathura cups rustup\
+ zathura-pdf-poppler discord dnsmasq qemu virt-manager gimp libreoffice-still\
+ gnu-free-fonts noto-fonts ttf-dejavu ttf-droid ttf-fira-code fd unzip\
+ ttf-iosevka-nerd ttf-lato ttf-nerd-fonts-symbols-common ttf-liberation\
+ ueberzug ffmpegthumbnailer alsa-utils pavucontrol pulseaudio-alsa exfatprogs
+pacman -Rsn --noconfirm sudo
+
 echo 'pt_BR.UTF-8 UTF-8' >> /etc/locale.gen
 locale-gen
 echo 'LANG=pt_BR.UTF-8' >> /etc/locale.conf
 echo 'KEYMAP=br-abnt2' >> /etc/vconsole.conf
 echo 'arch' >> /etc/hostname
-echo '\n root password \n'
-passwd
-vim /etc/pacman.conf
-pacman -Sy --noconfirm --needed doas neovim grub efibootmgr dosfstools mtools\
- os-prober nvidia xorg xorg-xinit kitty feh picom rofi fzf base-devel mpv btop\
- networkmanager stylua lf fish neofetch bat pulseaudio exa zathura cups rustup\
- zathura-pdf-poppler discord dnsmasq qemu virt-manager gimp libreoffice-still\
- gnu-free-fonts noto-fonts ttf-dejavu ttf-droid ttf-fira-code\
- ttf-iosevka-nerd ttf-lato ttf-nerd-fonts-symbols-common ttf-liberation\
- ueberzug ffmpegthumbnailer
-pacman -Rsn --noconfirm sudo
+localectl set-x11-keymap br
 echo 'permit :wheel' >> /etc/doas.conf
+
+# Change shell
 chsh -s /bin/fish
+
+# 
 nvim /etc/default/grub
 mkdir -p /boot/EFI
 mount /dev/sda1 /boot/EFI
 lsblk -f
 grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
+
+# Enables internet connection
 systemctl enable NetworkManager
-systemctl enable libvirt
-useradd -m fresh
-usermod -G wheel,audio,video,optical,storage,libvirt -a fresh
-echo '\n fresh password \n'
-passwd fresh
+
+# Enables virtual machine
+systemctl enable libvirtd
+
+# Work user
+useradd -m guilherme
+usermod -G wheel,audio,video,optical,storage,libvirt -a guilherme
+echo '\n guilherme password \n'
+passwd guilherme
+
+# Fun user
 useradd -m sangrito
 usermod -G wheel,audio,video,optical,storage,libvirt -a sangrito
 echo '\n sangrito password \n'
 passwd sangrito
-exit
+
 reboot

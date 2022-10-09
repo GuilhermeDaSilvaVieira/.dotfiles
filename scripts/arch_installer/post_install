@@ -1,6 +1,6 @@
+#! /bin/fish
+
 chsh -s /bin/fish
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install
-fish install --path=~/.local/share/omf --config=~/.config/omf
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 makepkg -si
@@ -11,5 +11,5 @@ yay -S --noconfirm --needed awesome-git nvim-packer-git librewolf-bin\
 yay -Rsn (yay -Qtdq)
 cp /etc/X11/xinit/xinitrc ~/.xinitrc
 nvim ~/.xinitrc
-~/.dotfiles/scripts/install
-reboot
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install
+fish install --path=~/.local/share/omf --config=~/.config/omf

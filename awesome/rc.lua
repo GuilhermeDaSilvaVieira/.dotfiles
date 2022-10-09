@@ -74,15 +74,31 @@ myawesomemenu = {
   },
 }
 
+powermenu = {
+  {
+    "shutdown",
+    function()
+      awesome.spawn("shutdown now")
+    end,
+  },
+  {
+    "reboot",
+    function()
+      awesome.spawn("reboot")
+    end,
+  },
+  {
+    "suspend",
+    function()
+      awesome.spawn("systemctl suspend")
+    end,
+  },
+}
+
 mymainmenu = awful.menu({
   items = {
     { "awesome", myawesomemenu, beautiful.awesome_icon },
-    {
-      "shutdown",
-      function()
-        awesome.spawn("shutdown now")
-      end,
-    },
+    { "power_menu", powermenu },
     { "open terminal", terminal },
   },
 })
@@ -429,7 +445,7 @@ end
 -- User defined
 awful.keyboard.append_global_keybindings({
   awful.key({ modkey }, "r", function()
-    awful.spawn("fish -c ~/.config/rofi/launchers/type-1/launcher.sh")
+    awful.spawn("rofi -show")
   end, { description = "run rofi", group = "user" }),
   awful.key({ modkey }, "b", function()
     awful.spawn("librewolf")
