@@ -4,4 +4,4 @@ configuration {
  combi-modi: "window,drun";
  show-icons: true;
  }
-@theme "solarized"
+/* @theme "solarized" */

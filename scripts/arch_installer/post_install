@@ -1,15 +1,26 @@
 #! /bin/fish
 
+# Change shell to fish
 chsh -s /bin/fish
+
+# Install yay
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 makepkg -si
 cd ..
 rm yay-bin -rf
+
+# Install additional packages we don't have on pacman
 yay -S --noconfirm --needed awesome-git nvim-packer-git librewolf-bin\
  ttf-ms-fonts tradingview-bin
+
+# Uninstall unnecessary packages 
 yay -Rsn (yay -Qtdq)
+
+# Make startx works with awesome
 cp /etc/X11/xinit/xinitrc ~/.xinitrc
 nvim ~/.xinitrc
+
+# Install oh-my-fish
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install
 fish install --path=~/.local/share/omf --config=~/.config/omf
