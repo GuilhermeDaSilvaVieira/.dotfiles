@@ -26,11 +26,11 @@ grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable --now NetworkManager
 useradd -m fresh
-usermod -G wheel,audio,video,optical,storage,libvirt -a fresh
+usermod -G wheel,audio,video,optical,storage -a fresh
 echo '\n fresh password \n'
 passwd fresh
 useradd -m sangrito
-usermod -G wheel,audio,video,optical,storage,libvirt -a sangrito
+usermod -G wheel,audio,video,optical,storage -a sangrito
 echo '\n sangrito password \n'
 passwd sangrito
 exit
