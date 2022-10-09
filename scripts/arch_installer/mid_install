@@ -25,7 +25,6 @@ lsblk -f
 grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable --now NetworkManager
-systemctl enable --now libvirt
 useradd -m fresh
 usermod -G wheel,audio,video,optical,storage,libvirt -a fresh
 echo '\n fresh password \n'
