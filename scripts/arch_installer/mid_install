@@ -24,13 +24,14 @@ mount /dev/sda1 /boot/EFI
 lsblk -f
 grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
-systemctl enable --now NetworkManager
+systemctl enable NetworkManager
+systemctl enable libvirt
 useradd -m fresh
-usermod -G wheel,audio,video,optical,storage -a fresh
+usermod -G wheel,audio,video,optical,storage,libvirt -a fresh
 echo '\n fresh password \n'
 passwd fresh
 useradd -m sangrito
-usermod -G wheel,audio,video,optical,storage -a sangrito
+usermod -G wheel,audio,video,optical,storage,libvirt -a sangrito
 echo '\n sangrito password \n'
 passwd sangrito
 exit
