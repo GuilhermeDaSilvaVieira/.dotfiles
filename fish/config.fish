@@ -2,7 +2,7 @@
 #     # Commands to run in interactive sessions can go here
 # end
 
-alias l "exa -la --sort=type"
+alias l "exa -lag --sort=type"
 alias v "nvim"
 alias cat "bat"
 alias lf "~/.dotfiles/lf/lfrun"

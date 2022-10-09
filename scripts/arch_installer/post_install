@@ -1,8 +1,5 @@
 #! /bin/fish
 
-# Change shell to fish
-chsh -s /bin/fish
-
 # Install yay
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin

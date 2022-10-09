@@ -39,7 +39,7 @@ chsh -s /bin/fish
 # Set timeout = 0 and enable os-prober
 nvim /etc/default/grub
 
-# Create boot/EFI partition
+# Make boot/EFI folder
 mkdir -p /boot/EFI
 
 # Mount boot/EFI partition
@@ -58,16 +58,24 @@ systemctl enable NetworkManager
 # Enable virtual machine
 systemctl enable libvirtd
 
+# Create an external media group
+# groupadd external
+
 # Work user
-useradd -m work
-usermod -G wheel,audio,video,optical,storage,libvirt -a work
+# useradd -m -G wheel,audio,video,optical,storage,libvirt,external -s /bin/fish work
+useradd -m -G wheel,audio,video,optical,storage,libvirt -s /bin/fish work
 echo 'Work'
 passwd work
 
 # Fun user
-useradd -m fun
-usermod -G wheel,audio,video,optical,storage,libvirt -a fun
+# useradd -m -G wheel,audio,video,optical,storage,libvirt,external -s /bin/fish fun
+useradd -m -G wheel,audio,video,optical,storage,libvirt -s /bin/fish fun
 echo 'Fun'
 passwd fun
+
+# Makes accessible to external group
+# chgrp -R external /extra/
+# chmod -R 775 /extra/
+# setfacl -dR -m g:external:rwx /extra
 
 reboot
