@@ -12,7 +12,7 @@ pacman -Sy --noconfirm --needed doas neovim grub efibootmgr dosfstools mtools\
  os-prober nvidia xorg xorg-xinit kitty feh picom rofi fzf base-devel mpv btop\
  networkmanager stylua lf fish neofetch bat pulseaudio exa zathura cups rustup\
  zathura-pdf-poppler discord dnsmasq qemu virt-manager gimp libreoffice-still\
- ebtables gnu-free-fonts noto-fonts ttf-dejavu ttf-droid ttf-fira-code\
+ gnu-free-fonts noto-fonts ttf-dejavu ttf-droid ttf-fira-code\
  ttf-iosevka-nerd ttf-lato ttf-nerd-fonts-symbols-common ttf-liberation\
  ueberzug ffmpegthumbnailer
 pacman -Rsn --noconfirm sudo
