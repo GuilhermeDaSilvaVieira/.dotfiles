@@ -9,13 +9,15 @@ rm yay-bin -rf
 yay -S --noconfirm --needed awesome-git nvim-packer-git librewolf-bin\
  ttf-ms-fonts tradingview-bin
 
-# Uninstall unnecessary packages 
-yay -Rsn (yay -Qtdq)
-
 # Make startx works with awesome
 cp /etc/X11/xinit/xinitrc ~/.xinitrc
 nvim ~/.xinitrc
 
+# Default zathura with pdf reader, not GIMP
+xdg-mime default org.pwmt.zathura.desktop application/pdf
+
 # Install oh-my-fish
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install
 fish install --path=~/.local/share/omf --config=~/.config/omf
+
+echo 'Run: yay -Rsn (yay -Qtdq)'

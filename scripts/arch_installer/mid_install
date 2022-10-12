@@ -23,7 +23,7 @@ pacman -Sy --noconfirm --needed doas grub efibootmgr dosfstools mtools\
  gnu-free-fonts noto-fonts ttf-dejavu ttf-droid ttf-fira-code fd unzip\
  ttf-iosevka-nerd ttf-lato ttf-nerd-fonts-symbols-common ttf-liberation\
  ueberzug ffmpegthumbnailer alsa-utils pavucontrol pulseaudio-alsa exfatprogs\
- transmission-cli
+ transmission-cli lxappearance-gtk3 docker docker-compose
 pacman -Rsn --noconfirm sudo
 
 # Set locale and keyboard to br
@@ -31,7 +31,7 @@ echo 'pt_BR.UTF-8 UTF-8' >> /etc/locale.gen
 locale-gen
 echo 'LANG=pt_BR.UTF-8' >> /etc/locale.conf
 echo 'KEYMAP=br-abnt2' >> /etc/vconsole.conf
-localectl set-x11-keymap br
+setxkbmap -model abnt2 -layout br -variant abnt2
 
 # Only the group wheel has superuser permission
 echo 'permit :wheel' >> /etc/doas.conf
@@ -61,6 +61,9 @@ systemctl enable NetworkManager
 # Enable virtual machine
 systemctl enable libvirtd
 
+# Enable printing
+systemctl enable cups
+
 # Work user
 useradd -m -G wheel,audio,video,optical,storage,libvirt -s /bin/fish work
 echo 'Work'
@@ -71,4 +74,4 @@ useradd -m -G wheel,audio,video,optical,storage,libvirt -s /bin/fish fun
 echo 'Fun'
 passwd fun
 
-reboot
+echo 'Run: reboot'

@@ -98,7 +98,7 @@ powermenu = {
 mymainmenu = awful.menu({
   items = {
     { "awesome", myawesomemenu, beautiful.awesome_icon },
-    { "power_menu", powermenu },
+    { "power menu", powermenu },
     { "open terminal", terminal },
   },
 })
@@ -283,6 +283,10 @@ screen.connect_signal("request::desktop_decoration", function(s)
       end),
     },
   })
+  username = wibox.widget.textbox()
+  awful.spawn.easy_async("whoami", function(output)
+    username.text = output
+  end)
 
   -- Create the wibox
   s.mywibox = awful.wibar({
@@ -312,6 +316,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
       { -- Right widgets
         layout = wibox.layout.fixed.horizontal,
         wibox.widget.systray(),
+        username,
         memicon,
         memory.widget,
         cpuicon,
