@@ -19,7 +19,9 @@ set.showmode = false
 set.undofile = true
 set.timeoutlen = 1000
 set.ls = 0
-set.winbar = "%f"
+--[[ set.winbar = "%=%m %f" ]]
+set.winbar = "%f %m"
+
 
 vim.cmd([[
 colorscheme cobalt2

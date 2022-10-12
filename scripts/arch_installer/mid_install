@@ -23,7 +23,7 @@ pacman -Sy --noconfirm --needed doas grub efibootmgr dosfstools mtools\
  gnu-free-fonts noto-fonts ttf-dejavu ttf-droid ttf-fira-code fd unzip\
  ttf-iosevka-nerd ttf-lato ttf-nerd-fonts-symbols-common ttf-liberation\
  ueberzug ffmpegthumbnailer alsa-utils pavucontrol pulseaudio-alsa exfatprogs\
- transmission-cli lxappearance-gtk3 docker docker-compose
+ transmission-cli lxappearance-gtk3 docker docker-compose youtube-dl
 pacman -Rsn --noconfirm sudo
 
 # Set locale and keyboard to br
