@@ -9,4 +9,4 @@ ln -sf ~/.dotfiles/kitty/ ~/.config/kitty
 ln -sf ~/.dotfiles/nvim/ ~/.config/nvim
 ln -sf ~/.dotfiles/picom/ ~/.config/picom
 ln -sf ~/.dotfiles/lf/ ~/.config/lf
-ln -sf ~/.dotfiles/rofi/ ~/.config/rofi
+ln -sf ~/.dotfiles/chrome ~/.librewolf/*-release/chrome

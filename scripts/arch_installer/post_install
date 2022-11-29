@@ -1,7 +1,7 @@
 # Install yay
 git clone https://aur.archlinux.org/paru.git
 cd paru
-makepkg -si
+LC_ALL=C makepkg -si --log
 cd ..
 rm paru -rf
 

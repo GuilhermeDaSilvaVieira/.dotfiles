@@ -12,7 +12,7 @@ local dpi = xresources.apply_dpi
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_configuration_dir() .. "themes/rice/"
 
-_M.font = "Iosevka term bold 9"
+_M.font = "Iosevka term bold 14"
 
 _M.bg_normal = "#222222"
 _M.bg_focus = "#444444"
@@ -36,8 +36,8 @@ _M.border_color_active = "#ffd700"
 _M.border_marked = "#91231c"
 
 _M.menu_submenu_icon = themes_path .. "submenu.png"
-_M.menu_height = dpi(15)
-_M.menu_width = dpi(100)
+_M.menu_height = dpi(20)
+_M.menu_width = dpi(150)
 
 -- Define the image to load
 --[[ _M.titlebar_close_button_normal = themes_path .. "titlebar/close_normal.png" ]]
