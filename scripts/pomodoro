@@ -1,6 +1,6 @@
 #! /bin/fish
 
-for i in (seq 1 16)
+for i in (seq 1 4)
   termdown 25m -e -T "$i Pomodoro" -t "$i Pausa"
   if test (math $i % 4) -eq 0
     termdown 25m -e -T "$i Pausa" -t "`expr $i + 1` Pomodoro"

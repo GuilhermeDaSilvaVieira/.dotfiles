@@ -13,4 +13,5 @@ require("user.lualine")
 require("user.nvim-tree")
 --[[ require("user.flutter") ]]
 require("user.trouble")
+require("user.todo_comments")
 require("colorizer").setup()

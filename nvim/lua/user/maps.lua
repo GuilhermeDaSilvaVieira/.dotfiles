@@ -42,7 +42,8 @@ nmap("<space>f", ":FZF<CR>")
 nmap("<space>e", ":NvimTreeToggle<CR>")
 
 -- Trouble
-nmap("<space>q", ":TroubleToggle<CR>")
+nmap("<space>q", ":TroubleToggle document_diagnostics<CR>")
+nmap("<space>t", ":TodoTrouble<CR>")
 
 -- Insert --
 -- Escape mais acessivel
@@ -59,6 +60,3 @@ vmap("<A-k>", ":m -2<CR>gv")
 
 -- Substituição
 vim.api.nvim_set_keymap('n', '<space>s', ":%s ///gc<Left><Left><Left><Left>", {noremap = true, silent = false})
-
--- Buffer change
-vim.api.nvim_set_keymap('n', '<space>b', ":b ", {noremap = true, silent = false})

@@ -98,4 +98,7 @@ return packer.startup(function(use)
 
   -- Color Highlighter
   use({ "norcalli/nvim-colorizer.lua" })
+
+  -- Todo Comments
+  use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
 end)

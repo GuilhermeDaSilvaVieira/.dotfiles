@@ -1,6 +1,8 @@
 local set = vim.opt
 
 set.backup = false
+--[[ set.path:append("**") ]]
+--[[ set.wildmenu = true ]]
 set.tabstop = 2
 set.shiftwidth = 2
 set.softtabstop = 2
@@ -21,7 +23,6 @@ set.timeoutlen = 1000
 set.ls = 0
 --[[ set.winbar = "%=%m %f" ]]
 set.winbar = "%f %m"
-
 
 vim.cmd([[
 colorscheme cobalt2

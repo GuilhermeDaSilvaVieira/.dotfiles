@@ -17,13 +17,14 @@ nvim /etc/pacman.conf
 
 # Install all needed packages
 pacman -Sy --noconfirm --needed doas grub efibootmgr dosfstools mtools\
- os-prober nvidia xorg xorg-xinit kitty feh picom rofi fzf base-devel mpv btop\
+ os-prober nvidia xorg xorg-xinit kitty feh picom fzf base-devel mpv btop\
  networkmanager stylua lf fish neofetch bat pulseaudio exa zathura cups rustup\
  zathura-pdf-poppler discord dnsmasq qemu virt-manager gimp libreoffice-still\
  gnu-free-fonts noto-fonts ttf-dejavu ttf-droid ttf-fira-code fd unzip\
  ttf-iosevka-nerd ttf-lato ttf-nerd-fonts-symbols-common ttf-liberation\
  ueberzug ffmpegthumbnailer alsa-utils pavucontrol pulseaudio-alsa exfatprogs\
- transmission-cli lxappearance-gtk3 docker docker-compose youtube-dl
+ transmission-gtk lxappearance-gtk3 docker docker-compose youtube-dl\
+
 pacman -Rsn --noconfirm sudo
 
 # Set locale and keyboard to br
@@ -34,7 +35,7 @@ echo 'KEYMAP=br-abnt2' >> /etc/vconsole.conf
 setxkbmap -model abnt2 -layout br -variant abnt2
 
 # Only the group wheel has superuser permission
-echo 'permit :wheel' >> /etc/doas.conf
+echo 'permit keepenv persist :wheel' >> /etc/doas.conf
 
 # Change shell to fish
 chsh -s /bin/fish
