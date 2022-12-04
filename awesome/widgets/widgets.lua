@@ -12,7 +12,6 @@ end)
 
 -- {{{ uptime
 _M.uptime = awful.widget.watch("uptime -p", 1)
-
 -- }}}
 
 return _M

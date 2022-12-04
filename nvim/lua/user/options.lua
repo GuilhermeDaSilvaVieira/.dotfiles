@@ -20,7 +20,7 @@ set.ignorecase = true
 set.showmode = false
 set.undofile = true
 set.timeoutlen = 1000
-set.ls = 0
+-- set.ls = 0
 --[[ set.winbar = "%=%m %f" ]]
 set.winbar = "%f %m"
 

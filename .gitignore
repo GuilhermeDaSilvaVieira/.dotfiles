@@ -1,1 +1,5 @@
 nvim/plugin/
+fish/completions/
+fish/conf.d/
+fish/functions/
+fish/fish_variables

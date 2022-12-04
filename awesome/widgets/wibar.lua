@@ -4,12 +4,15 @@ local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local beautiful = require("beautiful")
 local wibox = require("wibox")
+local gears = require("gears")
+local xresources = require("beautiful.xresources")
+local dpi = xresources.apply_dpi
 
 local apps = require("config.apps")
 local mod = require("bindings.mod")
 
 local widgets = require("widgets.widgets")
-local volume= require("widgets.volume")
+local volume = require("widgets.volume")
 
 _M.awesomemenu = {
   {
@@ -59,11 +62,6 @@ _M.mainmenu = awful.menu({
     { "power menu", _M.powermenu, beautiful.power },
     { "open terminal", apps.terminal },
   },
-})
-
-_M.launcher = awful.widget.launcher({
-  image = beautiful.awesome_icon,
-  menu = _M.mainmenu,
 })
 
 _M.keyboardlayout = awful.widget.keyboardlayout()
@@ -199,19 +197,62 @@ function _M.create_tasklist(s)
   })
 end
 
+function _M.create_popup(s)
+  return awful.popup({
+    widget = awful.widget.tasklist({
+      screen = s,
+      filter = awful.widget.tasklist.filter.currenttags,
+      buttons = s.tasklist.buttons,
+      style = {
+        shape = gears.shape.rounded_rect,
+      },
+      layout = {
+        spacing = 5,
+        forced_num_rows = 1,
+        layout = wibox.layout.grid.horizontal,
+      },
+      widget_template = {
+        {
+          {
+            id = "clienticon",
+            widget = awful.widget.clienticon,
+          },
+          margins = 4,
+          widget = wibox.container.margin,
+        },
+        id = "background_role",
+        forced_width = 36,
+        forced_height = 36,
+        widget = wibox.container.background,
+        create_callback = function(self, c, index, objects) --luacheck: no unused
+          self:get_children_by_id("clienticon")[1].client = c
+        end,
+      },
+    }),
+    ontop = false,
+    placement = function(c)
+      awful.placement.top_left(c, {
+        margins = {
+          left = dpi(80),
+          right = dpi(0),
+          top = dpi(0),
+          bottom = dpi(0),
+        },
+      })
+    end,
+  })
+end
+
 function _M.create_wibox(s)
   return awful.wibar({
     screen = s,
     position = "top",
-    margins = 0,
     widget = {
       layout = wibox.layout.align.horizontal,
       -- left widgets
       {
         layout = wibox.layout.fixed.horizontal,
-        --[[ _M.launcher, ]]
         s.taglist,
-        s.promptbox,
       },
       -- middle widgets
       {
@@ -223,11 +264,10 @@ function _M.create_wibox(s)
         layout = wibox.layout.fixed.horizontal,
         wibox.widget.systray(),
         widgets.test,
-        --[[ widgets.uptime, ]]
+        -- widgets.uptime,
         volume.volume,
         widgets.username,
-        --[[ _M.keyboardlayout, ]]
-        --[[ s.layoutbox, ]]
+        _M.keyboardlayout,
       },
     },
   })

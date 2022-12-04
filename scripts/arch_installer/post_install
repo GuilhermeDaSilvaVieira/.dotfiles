@@ -7,6 +7,8 @@ rm paru -rf
 
 doas nvim /etc/paru.conf
 
+rustup default stable
+
 # Install additional packages we don't have on pacman
 paru -S --noconfirm --needed awesome-git nvim-packer-git librewolf-bin\
  ttf-ms-fonts tradingview jmtpfs epson-inkjet-printer-escpr
@@ -17,5 +19,7 @@ nvim ~/.xinitrc
 
 # Default zathura with pdf reader, not GIMP
 xdg-mime default org.pwmt.zathura.desktop application/pdf
+
+localectl set-x11-keymap br
 
 echo 'Run: paru -Rsn (paru -Qtdq)'
