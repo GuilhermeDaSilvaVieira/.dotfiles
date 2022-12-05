@@ -1,4 +1,4 @@
-# Install yay
+# Install paru
 git clone https://aur.archlinux.org/paru.git
 cd paru
 # LC_ALL=C makepkg -si --log
@@ -6,8 +6,10 @@ makepkg -si
 cd ..
 rm paru -rf
 
+# Use doas instead of sudo
 doas nvim /etc/paru.conf
 
+# Change rustup to default
 rustup default stable
 
 # Install additional packages we don't have on pacman
