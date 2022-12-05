@@ -4,12 +4,20 @@ ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime
 # generate /etc/adjtime
 hwclock --systohc
 
-# Root user
-echo 'Root'
-passwd
+# Set locale to br
+echo 'pt_BR.UTF-8 UTF-8' >> /etc/locale.gen
+locale-gen
+echo 'LANG=pt_BR.UTF-8' >> /etc/locale.conf
+
+# Set console keyboard to br
+echo 'KEYMAP=br-abnt2' >> /etc/vconsole.conf
 
 # Host name
 echo 'arch' >> /etc/hostname
+
+# Root user
+echo 'Root'
+passwd
 
 # Installs neovim
 pacman -Sy --noconfirm --needed neovim
@@ -30,13 +38,6 @@ pacman -Sy --noconfirm --needed doas grub efibootmgr dosfstools mtools\
 
 # Remove sudo
 pacman -Rsn --noconfirm sudo
-
-# Set locale and keyboard to br
-echo 'pt_BR.UTF-8 UTF-8' >> /etc/locale.gen
-locale-gen
-echo 'LANG=pt_BR.UTF-8' >> /etc/locale.conf
-echo 'KEYMAP=br-abnt2' >> /etc/vconsole.conf
-setxkbmap -model abnt2 -layout br -variant abnt2
 
 # Only the group wheel has superuser permission
 echo 'permit keepenv persist :wheel' >> /etc/doas.conf

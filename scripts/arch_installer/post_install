@@ -21,6 +21,7 @@ nvim ~/.xinitrc
 # Default zathura with pdf reader, not GIMP
 xdg-mime default org.pwmt.zathura.desktop application/pdf
 
+# Set X11 keyboard
 localectl set-x11-keymap br
 
 echo 'Run: paru -Rsn (paru -Qtdq)'
