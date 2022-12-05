@@ -14,8 +14,7 @@ mount /dev/sda3 /mnt
 
 # Boot
 mkfs.fat -F32 /dev/sda1
-mkdir -p /mnt/boot/EFI
-mount /dev/sda1 /mnt/boot/EFI
+mount --mkdir /dev/sda1 /mnt/boot/EFI
 
 # Swap
 mkswap /dev/sda2
@@ -23,8 +22,7 @@ swapon /dev/sda2
 
 # Home
 mkfs.ext4 /dev/nvme0n1p1
-mkdir -p /mnt/home
-mount /dev/nvme0n1p1 /mnt/home
+mount --mkdir /dev/nvme0n1p1 /mnt/home
 
 # Prints partition table
 lsblk -f
