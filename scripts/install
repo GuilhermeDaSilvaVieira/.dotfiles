@@ -1,6 +1,6 @@
 # Remove any existing config folders that can have a conflict
 cd ~/.config/
-rm awesome fish kitty nvim picom lf btop -rf
+rm awesome fish kitty nvim picom lf btop starship zathura ~/.librewolf/*-release/chrome -rf
 
 # Symlink everything
 ln -sf ~/.dotfiles/awesome/ ~/.config/
@@ -11,5 +11,5 @@ ln -sf ~/.dotfiles/picom/ ~/.config/
 ln -sf ~/.dotfiles/lf/ ~/.config/
 ln -sf ~/.dotfiles/btop/ ~/.config/
 ln -sf ~/.dotfiles/starship/starship.toml ~/.config/
-ln -sf ~/.dotfiles/zathura ~/.config/
+ln -sf ~/.dotfiles/zathura/ ~/.config/
 ln -sf ~/.dotfiles/chrome/ ~/.librewolf/*-release/
