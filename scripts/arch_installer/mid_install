@@ -1,5 +1,7 @@
 # Links to your timezone
 ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime
+
+# generate /etc/adjtime
 hwclock --systohc
 
 # Root user
@@ -26,6 +28,7 @@ pacman -Sy --noconfirm --needed doas grub efibootmgr dosfstools mtools\
  transmission-gtk lxappearance-gtk3 docker docker-compose youtube-dl redshift\
  starship
 
+# Remove sudo
 pacman -Rsn --noconfirm sudo
 
 # Set locale and keyboard to br
