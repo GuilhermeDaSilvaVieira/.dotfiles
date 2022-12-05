@@ -29,12 +29,12 @@ nvim /etc/pacman.conf
 pacman -Sy --noconfirm --needed doas grub efibootmgr dosfstools mtools\
  os-prober nvidia xorg xorg-xinit kitty feh picom fzf base-devel mpv btop\
  networkmanager stylua lf fish neofetch bat pulseaudio exa zathura cups rustup\
- zathura-pdf-poppler discord dnsmasq qemu virt-manager gimp libreoffice-still\
+ zathura-pdf-mupdf discord dnsmasq qemu virt-manager gimp libreoffice-still\
  gnu-free-fonts noto-fonts ttf-dejavu ttf-droid ttf-fira-code fd unzip\
  ttf-iosevka-nerd ttf-lato ttf-nerd-fonts-symbols-common ttf-liberation\
  ueberzug ffmpegthumbnailer alsa-utils pavucontrol pulseaudio-alsa exfatprogs\
- transmission-gtk lxappearance-gtk3 docker docker-compose youtube-dl redshift\
- starship ripgrep nvidia-utils
+ transmission-gtk lxappearance-gtk3 docker docker-compose yt-dlp redshift\
+ starship ripgrep nvidia-utils cmatrix
 
 # Remove sudo
 pacman -Rsn --noconfirm sudo
