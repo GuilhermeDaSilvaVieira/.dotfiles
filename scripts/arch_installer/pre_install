@@ -28,7 +28,7 @@ mount --mkdir /dev/nvme0n1p1 /mnt/home
 lsblk -f
 
 # Install system foundation
-pacstrap /mnt base linux linux-firmware
+pacstrap -K /mnt base linux linux-firmware
 
 # Permanent mount partitions
 genfstab -U /mnt >> /mnt/etc/fstab
