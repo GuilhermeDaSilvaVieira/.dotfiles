@@ -34,7 +34,7 @@ pacman -Sy --noconfirm --needed doas grub efibootmgr dosfstools mtools\
  ttf-iosevka-nerd ttf-lato ttf-nerd-fonts-symbols-common ttf-liberation\
  ueberzug ffmpegthumbnailer alsa-utils pavucontrol pulseaudio-alsa exfatprogs\
  transmission-gtk lxappearance-gtk3 docker docker-compose youtube-dl redshift\
- starship
+ starship ripgrep nvidia-utils
 
 # Remove sudo
 pacman -Rsn --noconfirm sudo
@@ -42,17 +42,17 @@ pacman -Rsn --noconfirm sudo
 # Only the group wheel has superuser permission
 echo 'permit keepenv persist :wheel' >> /etc/doas.conf
 
+# Blacklists nouveau in case nvidia-utils doesn't
+echo 'blacklist nouveau' >> /etc/modprobe.d/blacklist.conf
+
 # Change shell to fish
 chsh -s /bin/fish
 
 # Set timeout = 0 and enable os-prober
 nvim /etc/default/grub
 
-# Make boot/EFI folder
-mkdir -p /boot/EFI
-
 # Mount boot/EFI partition
-mount /dev/sda1 /boot/EFI
+mount --mkdir /dev/sda1 /boot/EFI
 
 # Print partition table
 lsblk -f
@@ -69,6 +69,9 @@ systemctl enable libvirtd
 
 # Enable printing
 systemctl enable cups
+
+# Enable docker
+systemctl enable docker
 
 # Work user
 useradd -m -G wheel,audio,video,optical,storage,libvirt -s /bin/fish work
