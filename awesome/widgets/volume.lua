@@ -49,15 +49,15 @@ _M.volume:buttons(gears.table.join(
     awful.spawn("pavucontrol")
   end),
   awful.button({}, 3, function()
-    awful.spawn("amixer sset Master toggle")
+    awful.spawn("amixer -D pulse sset Master toggle")
     _M.update_volume()
   end),
   awful.button({}, 4, function()
-    awful.spawn("amixer sset Master 2%+")
+    awful.spawn("amixer -D pulse sset Master 2%+")
     _M.update_volume()
   end),
   awful.button({}, 5, function()
-    awful.spawn("amixer sset Master 2%-")
+    awful.spawn("amixer -D pulse sset Master 2%-")
     _M.update_volume()
   end)
 ))
