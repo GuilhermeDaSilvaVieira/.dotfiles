@@ -1,7 +1,9 @@
+# Change rustup to default
+rustup default stable
+
 # Install paru
 git clone https://aur.archlinux.org/paru.git
 cd paru
-# LC_ALL=C makepkg -si --log
 makepkg -si
 cd ..
 rm paru -rf
@@ -9,12 +11,23 @@ rm paru -rf
 # Use doas instead of sudo
 doas nvim /etc/paru.conf
 
-# Change rustup to default
-rustup default stable
-
-# Install additional packages we don't have on pacman
-paru -S --noconfirm --needed awesome-git nvim-packer-git librewolf-bin\
- ttf-ms-fonts tradingview jmtpfs epson-inkjet-printer-escpr mangal-bin
+# Install AUR packages
+paru -S --noconfirm --needed awesome-git
+paru -Rsn (paru -Qtdq) 
+paru -S --noconfirm --needed nvim-packer-git
+paru -Rsn (paru -Qtdq) 
+paru -S --noconfirm --needed librewolf-bin
+paru -Rsn (paru -Qtdq) 
+paru -S --noconfirm --needed ttf-ms-fonts
+paru -Rsn (paru -Qtdq) 
+paru -S --noconfirm --needed tradingview
+paru -Rsn (paru -Qtdq) 
+paru -S --noconfirm --needed jmtpfs
+paru -Rsn (paru -Qtdq) 
+paru -S --noconfirm --needed epson-inkjet-printer-escpr
+paru -Rsn (paru -Qtdq) 
+paru -S --noconfirm --needed mangal-bin
+paru -Rsn (paru -Qtdq) 
 
 # Make startx works with awesome
 cp /etc/X11/xinit/xinitrc ~/.xinitrc
@@ -25,5 +38,3 @@ xdg-mime default org.pwmt.zathura.desktop application/pdf
 
 # Set X11 keyboard
 localectl set-x11-keymap br
-
-echo 'Run: paru -Rsn (paru -Qtdq)'
