@@ -83,4 +83,7 @@ useradd -m -G wheel,audio,video,optical,storage,libvirt -s /bin/fish fun
 echo 'Fun'
 passwd fun
 
+# Ensure blacklist works
+mkinitcpio -P
+
 echo 'Run: reboot'
