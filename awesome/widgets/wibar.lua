@@ -265,9 +265,9 @@ function _M.create_wibox(s)
         wibox.widget.systray(),
         widgets.test,
         -- widgets.uptime,
-        volume.volume,
         widgets.username,
-        _M.keyboardlayout,
+        volume.volume,
+        --[[ _M.keyboardlayout, ]]
       },
     },
   })
