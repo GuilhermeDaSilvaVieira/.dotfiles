@@ -34,7 +34,7 @@ pacman -Sy --noconfirm --needed doas grub efibootmgr dosfstools mtools\
  ttf-iosevka-nerd ttf-lato ttf-nerd-fonts-symbols-common ttf-liberation\
  ueberzug ffmpegthumbnailer alsa-utils pavucontrol pulseaudio-alsa exfatprogs\
  transmission-gtk lxappearance-gtk3 docker docker-compose yt-dlp redshift\
- starship ripgrep nvidia-utils cmatrix
+ starship ripgrep nvidia-utils cmatrix bluez bluez-utils
 
 # Remove sudo
 pacman -Rsn --noconfirm sudo
@@ -72,6 +72,9 @@ systemctl enable cups
 
 # Enable docker
 systemctl enable docker
+
+# Enable bluetooth
+systemctl enable bluetooth
 
 # Work user
 useradd -m -G wheel,audio,video,optical,storage,libvirt -s /bin/fish work
