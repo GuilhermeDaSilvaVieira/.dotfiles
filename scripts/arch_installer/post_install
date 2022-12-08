@@ -15,7 +15,7 @@ doas nvim /etc/paru.conf
 
 # Install AUR packages    
 paru -S awesome-git nvim-packer-git librewolf-bin ttf-ms-fonts tradingview\
- jmtpfs epson-inkjet-printer-escpr mangal-bin
+ jmtpfs epson-inkjet-printer-escpr mangal-bin xpadneo-dkms
 
 # Remove orphans
 paru -Rsn (paru -Qtdq)
