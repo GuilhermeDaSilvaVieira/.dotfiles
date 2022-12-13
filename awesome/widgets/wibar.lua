@@ -233,9 +233,9 @@ function _M.create_popup(s)
     placement = function(c)
       awful.placement.top_left(c, {
         margins = {
-          left = dpi(80),
+          left = dpi(100),
           right = dpi(0),
-          top = dpi(0),
+          top = dpi(7),
           bottom = dpi(0),
         },
       })
@@ -247,6 +247,15 @@ function _M.create_wibox(s)
   return awful.wibar({
     screen = s,
     position = "top",
+    margins = {
+      top = 10,
+      bottom = 0,
+      left = 10,
+      right = 10,
+    },
+    shape = function(cr, w, h)
+      gears.shape.rounded_rect(cr, w, h, 25)
+    end,
     widget = {
       layout = wibox.layout.align.horizontal,
       -- left widgets
