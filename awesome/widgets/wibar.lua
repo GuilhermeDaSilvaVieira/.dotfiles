@@ -232,10 +232,18 @@ function _M.create_popup(s)
     ontop = false,
     placement = function(c)
       awful.placement.top_left(c, {
+        --[[ margins = { ]]
+        --[[   left = dpi(100), ]]
+        --[[   right = dpi(0), ]]
+        --[[   top = dpi(7), ]]
+        --[[   bottom = dpi(0), ]]
+        --[[ }, ]]
+
+        -- TV
         margins = {
-          left = dpi(100),
+          left = dpi(200),
           right = dpi(0),
-          top = dpi(7),
+          top = dpi(20),
           bottom = dpi(0),
         },
       })

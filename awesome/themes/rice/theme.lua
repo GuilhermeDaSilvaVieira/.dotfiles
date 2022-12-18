@@ -8,7 +8,10 @@ local dpi = xresources.apply_dpi
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_configuration_dir() .. "themes/rice/"
 
-_M.font = "Iosevka term italic 9"
+--[[ _M.font = "Iosevka term italic 9" ]]
+
+-- TV
+_M.font = "Iosevka term italic 30"
 
 _M.bg_normal = "#222222"
 _M.bg_focus = "#444444"
@@ -34,8 +37,12 @@ _M.border_color_active = "#f7ee5a"
 _M.border_marked = "#91231c"
 
 _M.menu_submenu_icon = themes_path .. "submenu.png"
-_M.menu_height = dpi(15)
-_M.menu_width = dpi(100)
+--[[ _M.menu_height = dpi(15) ]]
+--[[ _M.menu_width = dpi(100) ]]
+
+-- TV
+_M.menu_height = dpi(50)
+_M.menu_width = dpi(500)
 
 _M.wallpaper = themes_path .. "background.png"
 

@@ -44,9 +44,9 @@ awful.keyboard.append_global_keybindings({
     on_press = function()
       scale = not scale
       if scale then
-        awful.spawn("xrandr --output DP-0 --mode 3840x2160 --scale 1x1")
+        awful.spawn("xrandr --output HDMI-0 --mode 3840x2160 --scale 1x1")
       else
-        awful.spawn("xrandr --output DP-0 --mode 3840x2160 --scale 0.8x0.8")
+        awful.spawn("xrandr --output HDMI-0 --mode 3840x2160 --scale 0.8x0.8")
       end
     end,
   }),
