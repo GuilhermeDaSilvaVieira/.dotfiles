@@ -34,7 +34,7 @@ pacman -Sy --noconfirm --needed doas grub efibootmgr dosfstools mtools\
  ttf-iosevka-nerd ttf-lato ttf-nerd-fonts-symbols-common ttf-liberation\
  ueberzug ffmpegthumbnailer alsa-utils pavucontrol pulseaudio-alsa exfatprogs\
  transmission-gtk lxappearance-gtk3 docker docker-compose yt-dlp redshift\
- starship ripgrep nvidia-utils cmatrix bluez bluez-utils
+ starship ripgrep nvidia-utils cmatrix bluez bluez-utils udisks2
 
 # Remove sudo
 pacman -Rsn --noconfirm sudo

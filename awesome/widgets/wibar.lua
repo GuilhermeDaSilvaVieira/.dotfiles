@@ -2,7 +2,6 @@ local _M = {}
 
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
-local beautiful = require("beautiful")
 local wibox = require("wibox")
 local gears = require("gears")
 local xresources = require("beautiful.xresources")
@@ -33,14 +32,12 @@ _M.powermenu = {
     function()
       awesome.spawn("shutdown now")
     end,
-    beautiful.power,
   },
   {
     "reboot",
     function()
       awesome.spawn("reboot")
     end,
-    beautiful.restart,
   },
   {
     "suspend",
@@ -57,11 +54,16 @@ _M.powermenu = {
 }
 
 _M.mainmenu = awful.menu({
+  auto_expand = true,
   items = {
-    { "awesome", _M.awesomemenu, beautiful.awesome_icon },
-    { "power menu", _M.powermenu, beautiful.power },
+    { "awesome", _M.awesomemenu },
+    { "power menu", _M.powermenu },
+    { "open browser", apps.browser },
     { "open terminal", apps.terminal },
   },
+  shape = function()
+    gears.shape.rounded_rect(cr, w, h, 15)
+  end,
 })
 
 _M.keyboardlayout = awful.widget.keyboardlayout()
@@ -232,20 +234,20 @@ function _M.create_popup(s)
     ontop = false,
     placement = function(c)
       awful.placement.top_left(c, {
-        --[[ margins = { ]]
-        --[[   left = dpi(100), ]]
-        --[[   right = dpi(0), ]]
-        --[[   top = dpi(7), ]]
-        --[[   bottom = dpi(0), ]]
-        --[[ }, ]]
-
-        -- TV
         margins = {
-          left = dpi(200),
+          left = dpi(100),
           right = dpi(0),
-          top = dpi(20),
+          top = dpi(7),
           bottom = dpi(0),
         },
+
+        -- TV
+        --[[ margins = { ]]
+        --[[   left = dpi(200), ]]
+        --[[   right = dpi(0), ]]
+        --[[   top = dpi(20), ]]
+        --[[   bottom = dpi(0), ]]
+        --[[ }, ]]
       })
     end,
   })
@@ -262,7 +264,7 @@ function _M.create_wibox(s)
       right = 10,
     },
     shape = function(cr, w, h)
-      gears.shape.rounded_rect(cr, w, h, 25)
+      gears.shape.rounded_rect(cr, w, h, 15)
     end,
     widget = {
       layout = wibox.layout.align.horizontal,

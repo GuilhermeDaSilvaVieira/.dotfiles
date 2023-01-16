@@ -1,5 +1,6 @@
 local _M = {
   terminal = os.getenv("TERMINAL") or "kitty",
+  browser = os.getenv("BROWSER") or "librewolf",
   editor = os.getenv("EDITOR") or "nvim",
 }
 

@@ -1,4 +1,5 @@
 local awful = require("awful")
+local naughty = require("naughty")
 
 local apps = require("config.apps")
 local mod = require("bindings.mod")
@@ -44,9 +45,15 @@ awful.keyboard.append_global_keybindings({
     on_press = function()
       scale = not scale
       if scale then
-        awful.spawn("xrandr --output HDMI-0 --mode 3840x2160 --scale 1x1")
+        awful.spawn("xrandr --output DP-0 --mode 3840x2160 --scale 1x1")
+
+        -- TV
+        --[[ awful.spawn("xrandr --output HDMI-0 --mode 3840x2160 --scale 1x1") ]]
       else
-        awful.spawn("xrandr --output HDMI-0 --mode 3840x2160 --scale 0.8x0.8")
+        awful.spawn("xrandr --output DP-0 --mode 3840x2160 --scale 0.8x0.8")
+        
+        -- TV
+        --[[ awful.spawn("xrandr --output HDMI-0 --mode 3840x2160 --scale 0.8x0.8") ]]
       end
     end,
   }),
@@ -92,6 +99,18 @@ awful.keyboard.append_global_keybindings({
     on_press = function()
       awful.spawn("amixer -D pulse sset Master toggle")
       volume.show_switch_notification()
+    end,
+  }),
+  awful.key({
+    modifiers = {},
+    key = "Print",
+    description = "make a screenshot",
+    group = "user",
+    on_press = function()
+      local name = "~/Images/Screenshot/Screenshot_" .. os.date("%Y-%m-%d_%H-%M-%S") .. ".png"
+      awful.spawn.easy_async_with_shell("maim -s " .. name, function()
+        naughty.notify({ title = "Screenshot saved", text = name })
+      end)
     end,
   }),
 })

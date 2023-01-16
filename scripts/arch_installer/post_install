@@ -4,11 +4,11 @@
 rustup default stable
 
 # Install paru
-git clone https://aur.archlinux.org/paru.git
-cd paru
+git clone https://aur.archlinux.org/paru-bin.git
+cd paru-bin
 makepkg -si
 cd ..
-rm paru -rf
+rm paru-bin -rf
 
 # Use doas instead of sudo
 doas nvim /etc/paru.conf
