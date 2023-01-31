@@ -2,33 +2,25 @@ local awful = require("awful")
 local beautiful = require("beautiful")
 local wibox = require("wibox")
 
-local vars = require("config.vars")
-local wibar = require("widgets.wibar")
+local wibar = require("wibar")
 
 screen.connect_signal("request::wallpaper", function(s)
   awful.wallpaper({
     screen = s,
     widget = {
-      {
-        image = beautiful.wallpaper,
-        upscale = true,
-        downscale = true,
-        widget = wibox.widget.imagebox,
-      },
-      valign = "center",
-      halign = "center",
-      tiled = false,
-      widget = wibox.container.tile,
+      horizontal_fit_policy = "fit",
+      vertical_fit_policy = "fit",
+      image = beautiful.wallpaper,
+      widget = wibox.widget.imagebox,
     },
   })
 end)
 
 screen.connect_signal("request::desktop_decoration", function(s)
-  awful.tag(vars.tags, s, awful.layout.layouts[1])
-  s.promptbox = wibar.create_promptbox()
-  s.layoutbox = wibar.create_layoutbox(s)
-  s.taglist = wibar.create_taglist(s)
-  s.tasklist = wibar.create_tasklist(s)
-  s.wibox = wibar.create_wibox(s)
-  s.popup = wibar.create_popup(s)
+  awful.tag({ "", "", "", "", "" }, s, awful.layout.layouts[1])
+  s.promptbox = wibar.promptbox.new()
+  s.layoutbox = wibar.layoutbox.new(s)
+  s.taglist = wibar.taglist.new(s)
+  --[[ s.tasklist = wibar.tasklist.new(s) ]]
+  s.wibox = wibar.bar.new(s)
 end)

@@ -1,6 +1,5 @@
-local _M = {}
+local theme = {}
 
---[[ local theme_assets = require("beautiful.theme_assets") ]]
 local xresources = require("beautiful.xresources")
 local rnotification = require("ruled.notification")
 local dpi = xresources.apply_dpi
@@ -8,49 +7,46 @@ local dpi = xresources.apply_dpi
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_configuration_dir() .. "themes/rice/"
 
-_M.font = "Iosevka term italic 9"
+theme.font = "anka coder 11"
 
--- TV
---[[ _M.font = "Iosevka term italic 30" ]]
+theme.bg_normal = "#222222"
+theme.bg_focus = "#444444"
+theme.bg_urgent = "#ff9900"
+theme.bg_minimize = theme.bg_focus
+theme.bg_systray = theme.bg_normal
 
-_M.bg_normal = "#222222"
-_M.bg_focus = "#444444"
-_M.bg_urgent = "#ff9900"
-_M.bg_minimize = _M.bg_focus
-_M.bg_systray = _M.bg_normal
+theme.fg_normal = "#9fccff"
+theme.fg_focus = theme.fg_normal
+theme.fg_urgent = theme.fg_normal
+theme.fg_minimize = theme.fg_normal
 
-_M.fg_normal = "#9fccff"
-_M.fg_focus = _M.fg_normal
-_M.fg_urgent = _M.fg_normal
-_M.fg_minimize = _M.fg_normal
+theme.taglist_fg_focus = "#5a63f7"
+theme.taglist_bg_focus = theme.bg_normal
+theme.taglist_fg_occupied = "#5ac1f7"
 
---[[ _M.wibar_opacity = 0.9 ]]
+theme.useless_gap = dpi(5)
+theme.border_width = dpi(0.5)
+theme.border_color_normal = theme.bg_normal
+theme.border_color_active = "#f7ee5a"
+theme.border_marked = "#91231c"
 
-_M.taglist_fg_focus = "#5a63f7"
-_M.taglist_bg_focus = _M.bg_normal
-_M.taglist_fg_occupied = "#5ac1f7"
+--[[ theme.wibar_border_color = theme.border_color_active ]]
+--[[ theme.wibar_border_width = theme.border_width ]]
 
-_M.useless_gap = dpi(5)
-_M.border_width = dpi(0.5)
-_M.border_color_normal = _M.bg_normal
-_M.border_color_active = "#f7ee5a"
-_M.border_marked = "#91231c"
+--[[ theme.menu_border_color = theme.border_color_active ]]
+--[[ theme.menu_border_width = theme.border_width ]]
 
-_M.menu_submenu_icon = themes_path .. "submenu.png"
-_M.menu_height = dpi(15)
-_M.menu_width = dpi(100)
+theme.menu_submenu_icon = themes_path .. "submenu.png"
+theme.menu_height = dpi(20)
+theme.menu_width = dpi(125)
 
--- TV
---[[ _M.menu_height = dpi(50) ]]
---[[ _M.menu_width = dpi(500) ]]
-
-_M.wallpaper = themes_path .. "background.png"
+theme.wallpaper = themes_path .. "wallpaper.jpg"
 
 -- You can use your own layout icons like this:
-_M.layout_tilebottom = themes_path .. "layouts/tilebottom.png"
-_M.layout_tileleft = themes_path .. "layouts/tileleft.png"
-_M.layout_tile = themes_path .. "layouts/tile.png"
-_M.layout_tiletop = themes_path .. "layouts/tiletop.png"
+theme.layout_tilebottom = themes_path .. "layouts/tilebottom.png"
+theme.layout_tileleft = themes_path .. "layouts/tileleft.png"
+theme.layout_tile = themes_path .. "layouts/tile.png"
+theme.layout_tiletop = themes_path .. "layouts/tiletop.png"
 
 -- Set different colors for urgent notifications.
 rnotification.connect_signal("request::rules", function()
@@ -60,4 +56,4 @@ rnotification.connect_signal("request::rules", function()
   })
 end)
 
-return _M
+return theme

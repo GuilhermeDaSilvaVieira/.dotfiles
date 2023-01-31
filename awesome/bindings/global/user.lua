@@ -1,7 +1,7 @@
 local awful = require("awful")
 local naughty = require("naughty")
 
-local apps = require("config.apps")
+local config = require("config")
 local mod = require("bindings.mod")
 local volume = require("widgets.volume")
 
@@ -25,7 +25,7 @@ awful.keyboard.append_global_keybindings({
     description = "open terminal file manager",
     group = "user",
     on_press = function()
-      awful.spawn(apps.terminal .. " -e fish -c lf")
+      awful.spawn(config.terminal .. " -e fish -c lf")
     end,
   }),
   awful.key({
