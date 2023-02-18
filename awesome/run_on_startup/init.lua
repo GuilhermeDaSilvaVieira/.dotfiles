@@ -1,14 +1,12 @@
 local awful = require("awful")
 
--- No sleep
-awful.spawn.with_shell("xset s off")
-awful.spawn.with_shell("xset s off -dpms")
+local cmd = {
+  "picom", -- transparency
+  "redshift -P -O 3400", -- light filter
+  "xset s off", -- keep screen on
+  "xset s off -dpms", -- keep screen on
+}
 
--- Compositor
-awful.spawn.with_shell("picom")
-
--- Random wallpaper
---[[ awful.spawn.with_shell("feh --no-fehbg --bg-scale --randomize ~/Images/Wallpapers") ]]
-
--- Changes color temperature
-awful.spawn.with_shell("redshift -P -O 3400")
+for i = 1, #cmd do
+  awful.spawn.with_shell(cmd[i])
+end

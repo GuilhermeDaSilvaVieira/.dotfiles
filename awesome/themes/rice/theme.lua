@@ -30,12 +30,6 @@ theme.border_color_normal = theme.bg_normal
 theme.border_color_active = "#f7ee5a"
 theme.border_marked = "#91231c"
 
---[[ theme.wibar_border_color = theme.border_color_active ]]
---[[ theme.wibar_border_width = theme.border_width ]]
-
---[[ theme.menu_border_color = theme.border_color_active ]]
---[[ theme.menu_border_width = theme.border_width ]]
-
 theme.menu_submenu_icon = themes_path .. "submenu.png"
 theme.menu_height = dpi(20)
 theme.menu_width = dpi(125)
