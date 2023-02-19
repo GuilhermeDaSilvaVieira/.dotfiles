@@ -2,6 +2,7 @@
 return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
+  vesion = false, -- last release is way too old
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
