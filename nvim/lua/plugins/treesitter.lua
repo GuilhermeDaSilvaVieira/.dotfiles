@@ -1,6 +1,7 @@
 -- Highlight, edit, and navigate code
 return {
   "nvim-treesitter/nvim-treesitter",
+  event = { "BufReadPost", "BufNewFile" },
   dependencies = {
     -- Additional text objects via treesitter
     "nvim-treesitter/nvim-treesitter-textobjects",
