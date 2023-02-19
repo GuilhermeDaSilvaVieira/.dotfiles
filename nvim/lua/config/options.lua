@@ -65,3 +65,6 @@ vim.o.termguicolors = true
 
 -- Never have a status bar on another window
 vim.o.laststatus = 0
+
+-- Navic on Winbar
+vim.o.winbar = "%m %f | %{%v:lua.require'nvim-navic'.get_location()%}"

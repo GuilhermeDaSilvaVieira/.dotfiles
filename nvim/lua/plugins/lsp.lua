@@ -12,7 +12,17 @@ return {
     "folke/neodev.nvim",
   },
   config = function()
-    local on_attach = function(_, bufnr)
+    local function attach_navic(client, bufnr)
+      local status_ok, navic = pcall(require, "nvim-navic")
+      if not status_ok then
+        return
+      end
+      navic.attach(client, bufnr)
+    end
+
+    local on_attach = function(client, bufnr)
+      attach_navic(client, bufnr)
+
       local nmap = function(keys, func, desc)
         if desc then
           desc = "LSP: " .. desc
