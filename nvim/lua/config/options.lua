@@ -67,4 +67,4 @@ vim.o.termguicolors = true
 vim.o.laststatus = 0
 
 -- Navic on Winbar
-vim.o.winbar = "%m %f | %{%v:lua.require'nvim-navic'.get_location()%}"
+vim.o.winbar = "%f %m| %{%v:lua.require'nvim-navic'.get_location()%}"
