@@ -1,2 +1,2 @@
 -- Auto pair "", '', {}, (), [], and so on...
-return { "windwp/nvim-autopairs", config = true, }
+return { "windwp/nvim-autopairs", event = "VeryLazy", config = true }

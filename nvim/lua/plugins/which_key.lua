@@ -1,2 +1,2 @@
 -- Show possible keybindings
-return { "folke/which-key.nvim", config = true, }
+return { "folke/which-key.nvim", event = "VeryLazy", config = true }
