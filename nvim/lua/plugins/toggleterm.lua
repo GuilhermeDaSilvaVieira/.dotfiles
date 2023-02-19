@@ -28,7 +28,7 @@ return {
     function _G.set_terminal_keymaps()
       local opts = { noremap = true, buffer = 0 }
       vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
-      vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+      -- vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
       vim.keymap.set("t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
       vim.keymap.set("t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
       vim.keymap.set("t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
@@ -44,9 +44,23 @@ return {
       lazygit:toggle()
     end
 
+    vim.keymap.set(
+      "n",
+      "<leader>tg",
+      "<cmd>lua _LAZYGIT_TOGGLE()<cr>",
+      { noremap = true, silent = true, desc = "Toggle Lazygit" }
+    )
+
     local btop = Terminal:new({ cmd = "btop", hidden = true })
     function _BTOP_TOGGLE()
       btop:toggle()
     end
+
+    vim.keymap.set(
+      "n",
+      "<leader>tb",
+      "<cmd>lua _BTOP_TOGGLE()<cr>",
+      { noremap = true, silent = true, desc = "Toggle Btop" }
+    )
   end,
 }
