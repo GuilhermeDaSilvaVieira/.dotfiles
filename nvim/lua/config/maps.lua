@@ -61,10 +61,10 @@ end
 xmap("<leader>p", '"_dP', "Keep previous paste")
 
 -- Save
-nmap("<leader>w", ":w<cr>", "Save buffer")
+nmap("<leader>w", "<cmd>w<cr>", "Save buffer")
 
 -- Toggle spell checker
-nmap("<leader>sc", ":set spell!<cr>", "Toggle spell checker")
+nmap("<leader>sc", "<cmd>set spell!<cr>", "Toggle spell checker")
 
 -- Keep cursor on center
 nmap("J", "mzJ`z")
@@ -91,14 +91,14 @@ nmap("<C-k>", "<C-w>k", "Go to upper window")
 nmap("<C-l>", "<C-w>l", "Go to right window")
 
 -- Switch buffers
-nmap("]b", ":bnext<CR>", "Go to next buffer")
-nmap("[b", ":bprevious<CR>", "Go to previous buffer")
+nmap("]b", "<cmd>bnext<cr>", "Go to next buffer")
+nmap("[b", "<cmd>bprevious<cr>", "Go to previous buffer")
 
 -- Substitute
 vim.keymap.set(
   "n",
   "<leader>ss",
-  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]],
+  [[<cmd>%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]],
   { desc = "Substitute highlighted word" }
 )
 
@@ -110,5 +110,5 @@ vmap("<", "<gv", "Left indent")
 vmap(">", ">gv", "Right indent")
 
 -- Move selected text
-vmap("J", ":m '>+1<CR>gv=gv", "Move Selected UP")
-vmap("K", ":m '<-2<CR>gv=gv", "Move Selected DOWN")
+vmap("J", "<cmd>m '>+1<CR>gv=gv", "Move Selected UP")
+vmap("K", "<cmd>m '<-2<CR>gv=gv", "Move Selected DOWN")
