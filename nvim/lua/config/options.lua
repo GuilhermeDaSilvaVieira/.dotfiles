@@ -53,6 +53,7 @@ vim.o.swapfile = false
 
 -- Save undo history
 vim.o.undofile = true
+vim.o.undolevels = 10000
 vim.o.undodir = os.getenv("HOME") .. "/.nvim/undo/"
 
 -- Security backup
@@ -61,3 +62,6 @@ vim.o.backupdir = os.getenv("HOME") .. "/.nvim/backup/"
 
 -- Use real colors in themes
 vim.o.termguicolors = true
+
+-- Never have a status bar on another window
+vim.o.laststatus = 0
