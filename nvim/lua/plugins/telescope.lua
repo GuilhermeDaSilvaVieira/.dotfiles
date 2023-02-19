@@ -102,6 +102,14 @@ return {
         require("telescope.builtin").diagnostics,
         { desc = "[S]earch [D]iagnostics" }
       )
+
+      -- Needs nvim-notify
+      vim.keymap.set(
+        "n",
+        "<leader>sn",
+        require("telescope").extensions.notify.notify,
+        { desc = "[S]earch [N]otifications" }
+      )
     end,
   },
 }
