@@ -26,7 +26,7 @@ return {
       noremap = true,
       silent = true,
       ":TodoTelescope<CR>",
-      desc = "[S]earch [H]elp",
+      desc = "[S]earch [T]odo",
     },
   },
   config = true,
