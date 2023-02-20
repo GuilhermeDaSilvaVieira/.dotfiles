@@ -1,6 +1,6 @@
-﻿# if status is-interactive
-#     # Commands to run in interactive sessions can go here
-# end
+﻿if status is-interactive
+	fastfetch
+end
 
 alias l "exa -lag --sort=type"
 alias v "nvim (fzf)"
