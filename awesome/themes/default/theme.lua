@@ -45,8 +45,10 @@ theme.border_color_marked = "#91231c"
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
-theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
-theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
+theme.taglist_squares_sel =
+  theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
+theme.taglist_squares_unsel =
+  theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
 
 -- Variables set for theming notifications:
 -- notification_font
@@ -70,28 +72,46 @@ theme.menu_width = dpi(100)
 theme.titlebar_close_button_normal = themes_path .. "titlebar/close_normal.png"
 theme.titlebar_close_button_focus = themes_path .. "titlebar/close_focus.png"
 
-theme.titlebar_minimize_button_normal = themes_path .. "titlebar/minimize_normal.png"
-theme.titlebar_minimize_button_focus = themes_path .. "titlebar/minimize_focus.png"
+theme.titlebar_minimize_button_normal = themes_path
+  .. "titlebar/minimize_normal.png"
+theme.titlebar_minimize_button_focus = themes_path
+  .. "titlebar/minimize_focus.png"
 
-theme.titlebar_ontop_button_normal_inactive = themes_path .. "titlebar/ontop_normal_inactive.png"
-theme.titlebar_ontop_button_focus_inactive = themes_path .. "titlebar/ontop_focus_inactive.png"
-theme.titlebar_ontop_button_normal_active = themes_path .. "titlebar/ontop_normal_active.png"
-theme.titlebar_ontop_button_focus_active = themes_path .. "titlebar/ontop_focus_active.png"
+theme.titlebar_ontop_button_normal_inactive = themes_path
+  .. "titlebar/ontop_normal_inactive.png"
+theme.titlebar_ontop_button_focus_inactive = themes_path
+  .. "titlebar/ontop_focus_inactive.png"
+theme.titlebar_ontop_button_normal_active = themes_path
+  .. "titlebar/ontop_normal_active.png"
+theme.titlebar_ontop_button_focus_active = themes_path
+  .. "titlebar/ontop_focus_active.png"
 
-theme.titlebar_sticky_button_normal_inactive = themes_path .. "titlebar/sticky_normal_inactive.png"
-theme.titlebar_sticky_button_focus_inactive = themes_path .. "titlebar/sticky_focus_inactive.png"
-theme.titlebar_sticky_button_normal_active = themes_path .. "titlebar/sticky_normal_active.png"
-theme.titlebar_sticky_button_focus_active = themes_path .. "titlebar/sticky_focus_active.png"
+theme.titlebar_sticky_button_normal_inactive = themes_path
+  .. "titlebar/sticky_normal_inactive.png"
+theme.titlebar_sticky_button_focus_inactive = themes_path
+  .. "titlebar/sticky_focus_inactive.png"
+theme.titlebar_sticky_button_normal_active = themes_path
+  .. "titlebar/sticky_normal_active.png"
+theme.titlebar_sticky_button_focus_active = themes_path
+  .. "titlebar/sticky_focus_active.png"
 
-theme.titlebar_floating_button_normal_inactive = themes_path .. "titlebar/floating_normal_inactive.png"
-theme.titlebar_floating_button_focus_inactive = themes_path .. "titlebar/floating_focus_inactive.png"
-theme.titlebar_floating_button_normal_active = themes_path .. "titlebar/floating_normal_active.png"
-theme.titlebar_floating_button_focus_active = themes_path .. "titlebar/floating_focus_active.png"
+theme.titlebar_floating_button_normal_inactive = themes_path
+  .. "titlebar/floating_normal_inactive.png"
+theme.titlebar_floating_button_focus_inactive = themes_path
+  .. "titlebar/floating_focus_inactive.png"
+theme.titlebar_floating_button_normal_active = themes_path
+  .. "titlebar/floating_normal_active.png"
+theme.titlebar_floating_button_focus_active = themes_path
+  .. "titlebar/floating_focus_active.png"
 
-theme.titlebar_maximized_button_normal_inactive = themes_path .. "titlebar/maximized_normal_inactive.png"
-theme.titlebar_maximized_button_focus_inactive = themes_path .. "titlebar/maximized_focus_inactive.png"
-theme.titlebar_maximized_button_normal_active = themes_path .. "titlebar/maximized_normal_active.png"
-theme.titlebar_maximized_button_focus_active = themes_path .. "titlebar/maximized_focus_active.png"
+theme.titlebar_maximized_button_normal_inactive = themes_path
+  .. "titlebar/maximized_normal_inactive.png"
+theme.titlebar_maximized_button_focus_inactive = themes_path
+  .. "titlebar/maximized_focus_inactive.png"
+theme.titlebar_maximized_button_normal_active = themes_path
+  .. "titlebar/maximized_normal_active.png"
+theme.titlebar_maximized_button_focus_active = themes_path
+  .. "titlebar/maximized_focus_active.png"
 
 theme.wallpaper = themes_path .. "background.png"
 
@@ -114,7 +134,8 @@ theme.layout_cornersw = themes_path .. "layouts/cornersww.png"
 theme.layout_cornerse = themes_path .. "layouts/cornersew.png"
 
 -- Generate Awesome icon:
-theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus, theme.fg_focus)
+theme.awesome_icon =
+  theme_assets.awesome_icon(theme.menu_height, theme.bg_focus, theme.fg_focus)
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
@@ -122,10 +143,10 @@ theme.icon_theme = nil
 
 -- Set different colors for urgent notifications.
 rnotification.connect_signal("request::rules", function()
-    rnotification.append_rule({
-        rule = { urgency = "critical" },
-        properties = { bg = "#ff0000", fg = "#ffffff" },
-    })
+  rnotification.append_rule({
+    rule = { urgency = "critical" },
+    properties = { bg = "#ff0000", fg = "#ffffff" },
+  })
 end)
 
 return theme

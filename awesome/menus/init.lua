@@ -6,7 +6,10 @@ local beautiful = require("beautiful")
 
 local config = require("config")
 
-menu.launcher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = menu.mainmenu })
+menu.launcher = awful.widget.launcher({
+  image = beautiful.awesome_icon,
+  menu = menu.mainmenu,
+})
 
 menu.awesomemenu = {
   {

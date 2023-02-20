@@ -34,7 +34,8 @@ awful.keyboard.append_global_keybindings({
     description = "toggle wibar",
     group = "user",
     on_press = function()
-      awful.screen.focused().wibox.visible = not awful.screen.focused().wibox.visible
+      awful.screen.focused().wibox.visible =
+        not awful.screen.focused().wibox.visible
     end,
   }),
   awful.key({
@@ -51,7 +52,7 @@ awful.keyboard.append_global_keybindings({
         --[[ awful.spawn("xrandr --output HDMI-0 --mode 3840x2160 --scale 1x1") ]]
       else
         awful.spawn("xrandr --output DP-0 --mode 3840x2160 --scale 0.8x0.8")
-        
+
         -- TV
         --[[ awful.spawn("xrandr --output HDMI-0 --mode 3840x2160 --scale 0.8x0.8") ]]
       end
@@ -107,7 +108,9 @@ awful.keyboard.append_global_keybindings({
     description = "make a screenshot",
     group = "user",
     on_press = function()
-      local name = "~/Images/Screenshot/Screenshot_" .. os.date("%Y-%m-%d_%H-%M-%S") .. ".png"
+      local name = "~/Images/Screenshot/Screenshot_"
+        .. os.date("%Y-%m-%d_%H-%M-%S")
+        .. ".png"
       awful.spawn.easy_async_with_shell("maim -s " .. name, function()
         naughty.notify({ title = "Screenshot saved", text = name })
       end)

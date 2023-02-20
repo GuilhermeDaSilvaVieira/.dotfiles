@@ -17,7 +17,13 @@ local themes = {
   "beans",
 }
 
-beautiful.init(string.format("%sthemes/%s/theme.lua", gears.filesystem.get_configuration_dir(), themes[3]))
+beautiful.init(
+  string.format(
+    "%sthemes/%s/theme.lua",
+    gears.filesystem.get_configuration_dir(),
+    themes[3]
+  )
+)
 
 -- load rules
 require("rules")

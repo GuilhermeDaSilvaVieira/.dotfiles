@@ -17,77 +17,79 @@ local gtk = require("beautiful.gtk")
 --
 local hex_color_match = "[a-fA-F0-9][a-fA-F0-9]"
 local function darker(color_value, darker_n)
-    local result = "#"
-    local channel_counter = 1
-    for s in color_value:gmatch(hex_color_match) do
-        local bg_numeric_value = tonumber("0x" .. s)
-        if channel_counter <= 3 then
-            bg_numeric_value = bg_numeric_value - darker_n
-        end
-        if bg_numeric_value < 0 then
-            bg_numeric_value = 0
-        end
-        if bg_numeric_value > 255 then
-            bg_numeric_value = 255
-        end
-        result = result .. string.format("%02x", bg_numeric_value)
-        channel_counter = channel_counter + 1
+  local result = "#"
+  local channel_counter = 1
+  for s in color_value:gmatch(hex_color_match) do
+    local bg_numeric_value = tonumber("0x" .. s)
+    if channel_counter <= 3 then
+      bg_numeric_value = bg_numeric_value - darker_n
     end
-    return result
+    if bg_numeric_value < 0 then
+      bg_numeric_value = 0
+    end
+    if bg_numeric_value > 255 then
+      bg_numeric_value = 255
+    end
+    result = result .. string.format("%02x", bg_numeric_value)
+    channel_counter = channel_counter + 1
+  end
+  return result
 end
 
 local function is_dark(color_value)
-    local bg_numeric_value = 0
-    local channel_counter = 1
-    for s in color_value:gmatch(hex_color_match) do
-        bg_numeric_value = bg_numeric_value + tonumber("0x" .. s)
-        if channel_counter == 3 then
-            break
-        end
-        channel_counter = channel_counter + 1
+  local bg_numeric_value = 0
+  local channel_counter = 1
+  for s in color_value:gmatch(hex_color_match) do
+    bg_numeric_value = bg_numeric_value + tonumber("0x" .. s)
+    if channel_counter == 3 then
+      break
     end
-    local is_dark_bg = (bg_numeric_value < 383)
-    return is_dark_bg
+    channel_counter = channel_counter + 1
+  end
+  local is_dark_bg = (bg_numeric_value < 383)
+  return is_dark_bg
 end
 
 local function mix(color1, color2, ratio)
-    ratio = ratio or 0.5
-    local result = "#"
-    local channels1 = color1:gmatch(hex_color_match)
-    local channels2 = color2:gmatch(hex_color_match)
-    for _ = 1, 3 do
-        local bg_numeric_value =
-        math.ceil(tonumber("0x" .. channels1()) * ratio + tonumber("0x" .. channels2()) * (1 - ratio))
-        if bg_numeric_value < 0 then
-            bg_numeric_value = 0
-        end
-        if bg_numeric_value > 255 then
-            bg_numeric_value = 255
-        end
-        result = result .. string.format("%02x", bg_numeric_value)
+  ratio = ratio or 0.5
+  local result = "#"
+  local channels1 = color1:gmatch(hex_color_match)
+  local channels2 = color2:gmatch(hex_color_match)
+  for _ = 1, 3 do
+    local bg_numeric_value = math.ceil(
+      tonumber("0x" .. channels1()) * ratio
+        + tonumber("0x" .. channels2()) * (1 - ratio)
+    )
+    if bg_numeric_value < 0 then
+      bg_numeric_value = 0
     end
-    return result
+    if bg_numeric_value > 255 then
+      bg_numeric_value = 255
+    end
+    result = result .. string.format("%02x", bg_numeric_value)
+  end
+  return result
 end
 
 local function reduce_contrast(color, ratio)
-    ratio = ratio or 50
-    return darker(color, is_dark(color) and -ratio or ratio)
+  ratio = ratio or 50
+  return darker(color, is_dark(color) and -ratio or ratio)
 end
 
 local function choose_contrast_color(reference, candidate1, candidate2) -- luacheck: no unused
-    if is_dark(reference) then
-        if not is_dark(candidate1) then
-            return candidate1
-        else
-            return candidate2
-        end
+  if is_dark(reference) then
+    if not is_dark(candidate1) then
+      return candidate1
     else
-        if is_dark(candidate1) then
-            return candidate1
-        else
-            return candidate2
-        end
+      return candidate2
     end
+  else
+    if is_dark(candidate1) then
+      return candidate1
+    else
+      return candidate2
+    end
+  end
 end
 
 -- inherit xresources theme:
@@ -95,14 +97,17 @@ local theme = dofile(themes_path .. "xresources/theme.lua")
 -- load and prepare for use gtk theme:
 theme.gtk = gtk.get_theme_variables()
 if not theme.gtk then
-    local gears_debug = require("gears.debug")
-    gears_debug.print_warning("Can't load GTK+3 theme. Using 'xresources' theme as a fallback.")
-    return theme
+  local gears_debug = require("gears.debug")
+  gears_debug.print_warning(
+    "Can't load GTK+3 theme. Using 'xresources' theme as a fallback."
+  )
+  return theme
 end
 theme.gtk.button_border_radius = dpi(theme.gtk.button_border_radius or 0)
 theme.gtk.button_border_width = dpi(theme.gtk.button_border_width or 1)
 theme.gtk.bold_font = theme.gtk.font_family .. " Bold " .. theme.gtk.font_size
-theme.gtk.menubar_border_color = mix(theme.gtk.menubar_bg_color, theme.gtk.menubar_fg_color, 0.7)
+theme.gtk.menubar_border_color =
+  mix(theme.gtk.menubar_bg_color, theme.gtk.menubar_fg_color, 0.7)
 
 theme.font = theme.gtk.font_family .. " " .. theme.gtk.font_size
 
@@ -133,7 +138,7 @@ theme.border_radius = theme.gtk.button_border_radius
 theme.useless_gap = dpi(3)
 
 local rounded_rect_shape = function(cr, w, h)
-    gears_shape.rounded_rect(cr, w, h, theme.border_radius)
+  gears_shape.rounded_rect(cr, w, h, theme.border_radius)
 end
 
 -- There are other variable sets
@@ -152,7 +157,8 @@ theme.tasklist_bg_focus = theme.tasklist_bg_normal
 theme.tasklist_font_focus = theme.gtk.bold_font
 
 theme.tasklist_shape_minimized = rounded_rect_shape
-theme.tasklist_shape_border_color_minimized = mix(theme.bg_minimize, theme.fg_minimize, 0.85)
+theme.tasklist_shape_border_color_minimized =
+  mix(theme.bg_minimize, theme.fg_minimize, 0.85)
 theme.tasklist_shape_border_width_minimized = theme.gtk.button_border_width
 
 theme.tasklist_spacing = theme.gtk.button_border_width
@@ -193,44 +199,47 @@ index 231a2f68c..533a859d2 100644
 
 --]]
 theme.tasklist_widget_template = {
+  {
     {
+      {
         {
-            {
-                {
-                    id = "clienticon",
-                    widget = awful_widget_clienticon,
-                },
-                margins = dpi(4),
-                widget = wibox.container.margin,
-            },
-            {
-                id = "text_role",
-                widget = wibox.widget.textbox,
-            },
-            layout = wibox.layout.fixed.horizontal,
+          id = "clienticon",
+          widget = awful_widget_clienticon,
         },
-        left = dpi(2),
-        right = dpi(4),
+        margins = dpi(4),
         widget = wibox.container.margin,
+      },
+      {
+        id = "text_role",
+        widget = wibox.widget.textbox,
+      },
+      layout = wibox.layout.fixed.horizontal,
     },
-    id = "background_role",
-    widget = wibox.container.background,
-    create_callback = function(self, c)
-        self:get_children_by_id("clienticon")[1].client = c
-    end,
+    left = dpi(2),
+    right = dpi(4),
+    widget = wibox.container.margin,
+  },
+  id = "background_role",
+  widget = wibox.container.background,
+  create_callback = function(self, c)
+    self:get_children_by_id("clienticon")[1].client = c
+  end,
 }
 
 theme.taglist_shape_container = rounded_rect_shape
 theme.taglist_shape_clip_container = true
 theme.taglist_shape_border_width_container = theme.gtk.button_border_width * 2
-theme.taglist_shape_border_color_container = theme.gtk.header_button_border_color
+theme.taglist_shape_border_color_container =
+  theme.gtk.header_button_border_color
 -- }}}
 
 theme.taglist_bg_occupied = theme.gtk.header_button_bg_color
 theme.taglist_fg_occupied = theme.gtk.header_button_fg_color
 
-theme.taglist_bg_empty = mix(theme.gtk.menubar_bg_color, theme.gtk.header_button_bg_color, 0.3)
-theme.taglist_fg_empty = mix(theme.gtk.menubar_bg_color, theme.gtk.header_button_fg_color)
+theme.taglist_bg_empty =
+  mix(theme.gtk.menubar_bg_color, theme.gtk.header_button_bg_color, 0.3)
+theme.taglist_fg_empty =
+  mix(theme.gtk.menubar_bg_color, theme.gtk.header_button_fg_color)
 
 theme.titlebar_font_normal = theme.gtk.bold_font
 theme.titlebar_bg_normal = theme.gtk.wm_border_unfocused_color
@@ -279,18 +288,42 @@ theme = theme_assets.recolor_layout(theme, theme.wibar_fg)
 -- Recolor titlebar icons:
 --
 theme = theme_assets.recolor_titlebar(theme, theme.titlebar_fg_normal, "normal")
-theme = theme_assets.recolor_titlebar(theme, reduce_contrast(theme.titlebar_fg_normal, 50), "normal", "hover")
-theme = theme_assets.recolor_titlebar(theme, theme.gtk.error_bg_color, "normal", "press")
+theme = theme_assets.recolor_titlebar(
+  theme,
+  reduce_contrast(theme.titlebar_fg_normal, 50),
+  "normal",
+  "hover"
+)
+theme = theme_assets.recolor_titlebar(
+  theme,
+  theme.gtk.error_bg_color,
+  "normal",
+  "press"
+)
 theme = theme_assets.recolor_titlebar(theme, theme.titlebar_fg_focus, "focus")
-theme = theme_assets.recolor_titlebar(theme, reduce_contrast(theme.titlebar_fg_focus, 50), "focus", "hover")
-theme = theme_assets.recolor_titlebar(theme, theme.gtk.error_bg_color, "focus", "press")
+theme = theme_assets.recolor_titlebar(
+  theme,
+  reduce_contrast(theme.titlebar_fg_focus, 50),
+  "focus",
+  "hover"
+)
+theme = theme_assets.recolor_titlebar(
+  theme,
+  theme.gtk.error_bg_color,
+  "focus",
+  "press"
+)
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
 
 -- Generate Awesome icon:
-theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, mix(theme.bg_focus, theme.fg_normal), theme.wibar_bg)
+theme.awesome_icon = theme_assets.awesome_icon(
+  theme.menu_height,
+  mix(theme.bg_focus, theme.fg_normal),
+  theme.wibar_bg
+)
 
 -- Generate taglist squares:
 --local taglist_square_size = dpi(4)
@@ -309,22 +342,22 @@ local wallpaper_bg = theme.gtk.base_color
 local wallpaper_fg = theme.gtk.bg_color
 local wallpaper_alt_fg = theme.gtk.selected_bg_color
 if not is_dark(theme.bg_normal) then
-    wallpaper_bg, wallpaper_fg = wallpaper_fg, wallpaper_bg
+  wallpaper_bg, wallpaper_fg = wallpaper_fg, wallpaper_bg
 end
 wallpaper_bg = reduce_contrast(wallpaper_bg, 50)
 wallpaper_fg = reduce_contrast(wallpaper_fg, 30)
 wallpaper_fg = mix(wallpaper_fg, wallpaper_bg, 0.4)
 wallpaper_alt_fg = mix(wallpaper_alt_fg, wallpaper_fg, 0.4)
 theme.wallpaper = function(s)
-    return theme_assets.wallpaper(wallpaper_bg, wallpaper_fg, wallpaper_alt_fg, s)
+  return theme_assets.wallpaper(wallpaper_bg, wallpaper_fg, wallpaper_alt_fg, s)
 end
 
 -- Set different colors for urgent notifications.
 rnotification.connect_signal("request::rules", function()
-    rnotification.append_rule({
-        rule = { urgency = "critical" },
-        properties = { bg = "#ff0000", fg = "#ffffff" },
-    })
+  rnotification.append_rule({
+    rule = { urgency = "critical" },
+    properties = { bg = "#ff0000", fg = "#ffffff" },
+  })
 end)
 
 return theme

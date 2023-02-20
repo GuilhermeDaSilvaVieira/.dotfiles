@@ -12,7 +12,7 @@ volume.volume = wibox.widget.textbox()
 
 function volume.update_volume()
   local command =
-  "amixer sget Master | grep 'Right:' | awk '{print $5 $6}' | sed -e 's/\\[//' -e 's/\\]//' -e 's/\\[//' -e 's/\\]//'"
+    "amixer sget Master | grep 'Right:' | awk '{print $5 $6}' | sed -e 's/\\[//' -e 's/\\]//' -e 's/\\[//' -e 's/\\]//'"
 
   awful.spawn.easy_async_with_shell(command, function(out)
     volume.volume.text = string.format(" %s ", out)
@@ -20,7 +20,8 @@ function volume.update_volume()
 end
 
 function volume.show_percent_notification()
-  local command = "amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'"
+  local command =
+    "amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'"
   awful.spawn.easy_async_with_shell(command, function(out)
     naughty.notification({
       message = string.format("Volume: %s", out),
@@ -31,7 +32,8 @@ function volume.show_percent_notification()
 end
 
 function volume.show_switch_notification()
-  local command = "amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $4 }'"
+  local command =
+    "amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $4 }'"
   awful.spawn.easy_async_with_shell(command, function(out)
     naughty.notification({
       message = string.format("Volume: %s", out),
