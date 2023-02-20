@@ -26,15 +26,15 @@ pacman -Sy --noconfirm --needed neovim
 nvim /etc/pacman.conf
 
 # Install all needed packages
-pacman -Sy --noconfirm --needed doas grub efibootmgr dosfstools mtools\
- os-prober nvidia xorg xorg-xinit kitty feh picom fzf base-devel mpv btop\
- networkmanager stylua lf fish neofetch bat pulseaudio exa zathura cups rustup\
- zathura-pdf-mupdf discord dnsmasq qemu virt-manager gimp libreoffice-still\
- gnu-free-fonts noto-fonts ttf-dejavu ttf-droid ttf-fira-code fd unzip\
- ttf-iosevka-nerd ttf-lato ttf-nerd-fonts-symbols-common ttf-liberation\
- ueberzug ffmpegthumbnailer alsa-utils pavucontrol pulseaudio-alsa exfatprogs\
- transmission-gtk lxappearance-gtk3 docker docker-compose yt-dlp redshift\
- starship ripgrep nvidia-utils cmatrix bluez bluez-utils udisks2
+pacman -Sy --noconfirm --needed doas grub efibootmgr dosfstools mtools p7zip\
+	os-prober nvidia xorg xorg-xinit kitty feh picom fzf base-devel mpv btop tree\
+	networkmanager stylua lf fish libreoffice-still bat pulseaudio exa zathura\
+	rustup zathura-pdf-mupdf discord dnsmasq qemu virt-manager gimp openssh xclip\
+	gnu-free-fonts noto-fonts ttf-dejavu ttf-droid ttf-fira-code fd unzip cups\
+	ttf-lato ttf-nerd-fonts-symbols-common ttf-liberation ueberzug renameutils\
+	ffmpegthumbnailer alsa-utils pavucontrol pulseaudio-alsa exfatprogs tokei\
+	transmission-gtk lxappearance-gtk3 docker docker-compose yt-dlp redshift\
+	starship ripgrep nvidia-utils cmatrix bluez bluez-utils udisks2 lazygit
 
 # Remove sudo
 pacman -Rsn --noconfirm sudo
