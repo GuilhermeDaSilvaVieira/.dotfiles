@@ -17,8 +17,5 @@ doas nvim /etc/paru.conf
 paru -S awesome-git librewolf-bin ttf-ms-fonts tradingview fastfetch jmtpfs\
 	epson-inkjet-printer-escpr mangal-bin xpadneo-dkms yuzu-mainline-git
 
-# Remove orphans
-paru -Rsn (paru -Qtdq)
-
 # Set X11 keyboard
 doas localectl set-x11-keymap br
