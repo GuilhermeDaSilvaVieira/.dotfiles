@@ -7,7 +7,7 @@ local dpi = xresources.apply_dpi
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_configuration_dir() .. "themes/rice/"
 
-theme.font = "anka coder 11"
+theme.font = "Fira Code 11"
 
 theme.bg_normal = "#222222"
 theme.bg_focus = "#444444"
