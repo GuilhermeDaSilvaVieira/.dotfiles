@@ -12,7 +12,7 @@ return {
     require("nvim-treesitter.install").update({ with_sync = true })
 
     require("nvim-treesitter.configs").setup({
-      ensure_installed = "all",
+      ensure_installed = { "rust", "lua", "vim", "help" },
       sync_install = false,
       highlight = {
         enable = true,
