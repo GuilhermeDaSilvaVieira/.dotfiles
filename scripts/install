@@ -13,3 +13,4 @@ ln -sf ~/.dotfiles/btop/ ~/.config/
 ln -sf ~/.dotfiles/starship/starship.toml ~/.config/
 ln -sf ~/.dotfiles/zathura/ ~/.config/
 ln -sf ~/.dotfiles/chrome/ ~/.librewolf/*-release/
+ln -sf ~/.dotfiles/MangoHud/ ~/.config/

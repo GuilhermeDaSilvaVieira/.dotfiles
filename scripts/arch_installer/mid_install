@@ -36,7 +36,7 @@ pacman -Sy --noconfirm --needed doas grub efibootmgr dosfstools mtools p7zip gc\
 	transmission-gtk lxappearance-gtk3 docker docker-compose yt-dlp redshift make\
 	starship ripgrep nvidia-utils cmatrix bluez bluez-utils udisks2 lazygit bison\
 	automake debugedit fakeroot flex guile libisl libmpc patch pkgconf texinfo\
-	which cups maim
+	which cups maim mangohud
 
 # Only the group wheel has superuser permission
 echo 'permit keepenv persist :wheel' >> /etc/doas.conf
