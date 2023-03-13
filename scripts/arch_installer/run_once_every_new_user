@@ -1,8 +1,8 @@
 #! /bin/fish
 
+# Default zathura with pdf reader, not GIMP
+xdg-mime default org.pwmt.zathura.desktop application/pdf
+
 # Make startx works with awesome
 cp /etc/X11/xinit/xinitrc ~/.xinitrc
 nvim ~/.xinitrc
-
-# Default zathura with pdf reader, not GIMP
-xdg-mime default org.pwmt.zathura.desktop application/pdf
