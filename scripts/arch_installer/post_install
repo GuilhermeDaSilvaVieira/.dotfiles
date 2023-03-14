@@ -15,7 +15,8 @@ doas nvim /etc/paru.conf
 
 # Install AUR packages    
 paru -S awesome-git librewolf-bin ttf-ms-fonts tradingview fastfetch jmtpfs\
-	epson-inkjet-printer-escpr mangal-bin xpadneo-dkms yuzu-mainline-git mangohud
+	epson-inkjet-printer-escpr mangal-bin xpadneo-dkms-git yuzu-mainline-git cava\
+	mangohud ani-cli-git
 
 # Set X11 keyboard
 doas localectl set-x11-keymap br
