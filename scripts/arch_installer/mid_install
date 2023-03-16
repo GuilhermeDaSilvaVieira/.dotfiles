@@ -33,10 +33,10 @@ pacman -Sy --noconfirm --needed doas grub efibootmgr dosfstools mtools p7zip gc\
 	gnu-free-fonts noto-fonts ttf-dejavu ttf-droid ttf-firacode-nerd fd unzip\
 	ttf-lato ttf-nerd-fonts-symbols-common ttf-liberation ueberzug renameutils\
 	ffmpegthumbnailer alsa-utils pavucontrol pulseaudio-alsa exfatprogs tokei gcc\
-	transmission-gtk lxappearance-gtk3 docker docker-compose yt-dlp redshift make\
+	transmission-gtk lxappearance-gtk3 yt-dlp redshift make nvidia-settings yuzu\
 	starship ripgrep nvidia-utils cmatrix bluez bluez-utils udisks2 lazygit bison\
 	automake debugedit fakeroot flex guile libisl libmpc patch pkgconf texinfo\
-	which cups maim nvidia-settings yuzu
+	which cups maim
 
 # Only the group wheel has superuser permission
 echo 'permit keepenv persist :wheel' >> /etc/doas.conf
@@ -68,9 +68,6 @@ systemctl enable libvirtd
 
 # Enable printing
 systemctl enable cups
-
-# Enable docker
-systemctl enable docker
 
 # Enable bluetooth
 systemctl enable bluetooth
