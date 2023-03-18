@@ -110,4 +110,13 @@ awful.keyboard.append_global_keybindings({
       end)
     end,
   }),
+  awful.key({
+    modifiers = { mod.super },
+    key = "t",
+    description = "open TradingView",
+    group = "user",
+    on_press = function()
+      awful.spawn("tradingview")
+    end,
+  }),
 })
