@@ -14,11 +14,13 @@ return {
     "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets",
     "saadparwaiz1/cmp_luasnip",
+    "nvim-tree/nvim-web-devicons",
+    "onsails/lspkind.nvim",
   },
   config = function()
-    -- nvim-cmp setup
     local cmp = require("cmp")
     local luasnip = require("luasnip")
+    local lspkind = require("lspkind")
 
     require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -26,6 +28,24 @@ return {
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
+        end,
+      },
+      formatting = {
+        format = function(entry, vim_item)
+          if vim.tbl_contains({ "path" }, entry.source.name) then
+            local icon, hl_group = require("nvim-web-devicons").get_icon(
+              entry:get_completion_item().label
+            )
+            if icon then
+              vim_item.kind = icon
+              vim_item.kind_hl_group = hl_group
+              return vim_item
+            end
+          end
+          return require("lspkind").cmp_format()(
+            entry,
+            vim_item
+          )
         end,
       },
       mapping = cmp.mapping.preset.insert({
@@ -56,13 +76,14 @@ return {
         end, { "i", "s" }),
       }),
       sources = {
-        { name = "nvim_lsp" },
-        { name = "nvim_lua" },
         { name = "luasnip" },
+        { name = "nvim_lsp" },
         { name = "buffer" },
+        { name = "nvim_lua" },
         { name = "path" },
       },
       window = {
+        completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
       },
     })
