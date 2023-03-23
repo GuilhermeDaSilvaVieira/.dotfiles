@@ -23,6 +23,13 @@ return {
     local on_attach = function(client, bufnr)
       attach_navic(client, bufnr)
 
+      local signs =
+        { Error = " ", Warn = " ", Hint = " ", Info = " " }
+
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+      end
       local nmap = function(keys, func, desc)
         if desc then
           desc = "LSP: " .. desc
@@ -55,6 +62,7 @@ return {
         vim.lsp.buf.format()
       end, { desc = "Format current buffer with LSP" })
     end
+
     -- Setup neovim lua configuration
     require("neodev").setup()
 
