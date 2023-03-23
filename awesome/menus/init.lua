@@ -21,7 +21,12 @@ menu.awesomemenu = {
   { "manual", config.manual_cmd },
   { "edit config", config.editor_cmd .. " " .. awesome.conffile },
   { "restart", awesome.restart },
-  { "quit", awesome.quit },
+  {
+    "quit",
+    function()
+      awesome.quit()
+    end,
+  },
 }
 
 menu.powermenu = {
