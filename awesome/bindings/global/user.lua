@@ -111,7 +111,7 @@ awful.keyboard.append_global_keybindings({
     end,
   }),
   awful.key({
-    modifiers = { mod.super },
+    modifiers = { mod.super, mod.shift },
     key = "t",
     description = "open TradingView",
     group = "user",
