@@ -61,10 +61,10 @@ end
 xmap("<leader>p", '"_dP', "Keep previous paste")
 
 -- Save
-nmap("<leader>w", "<cmd>w<cr>", "Save buffer")
+nmap("<leader>w", ":w<cr>", "Save buffer")
 
 -- Toggle spell checker
-nmap("<leader>sc", "<cmd>set spell!<cr>", "Toggle spell checker")
+nmap("<leader>sc", ":set spell!<cr>", "Toggle spell checker")
 
 -- Keep cursor on center
 nmap("J", "mzJ`z")
@@ -79,10 +79,10 @@ nmap("<leader>Y", '"+Y')
 vmap("<leader>y", '"+y')
 
 -- Resize window using <ctrl> arrow keys
-nmap("<C-Up>", "<cmd>resize +2<cr>", "Increase window height")
-nmap("<C-Down>", "<cmd>resize -2<cr>", "Decrease window height")
-nmap("<C-Left>", "<cmd>vertical resize -2<cr>", "Decrease window width")
-nmap("<C-Right>", "<cmd>vertical resize +2<cr>", "Increase window width")
+nmap("<C-Up>", ":resize +2<cr>", "Increase window height")
+nmap("<C-Down>", ":resize -2<cr>", "Decrease window height")
+nmap("<C-Left>", ":vertical resize -2<cr>", "Decrease window width")
+nmap("<C-Right>", ":vertical resize +2<cr>", "Increase window width")
 
 -- Move to window using the <ctrl> hjkl keys
 nmap("<C-h>", "<C-w>h", "Go to left window")
@@ -91,14 +91,14 @@ nmap("<C-k>", "<C-w>k", "Go to upper window")
 nmap("<C-l>", "<C-w>l", "Go to right window")
 
 -- Switch buffers
-nmap("]b", "<cmd>bnext<cr>", "Go to next buffer")
-nmap("[b", "<cmd>bprevious<cr>", "Go to previous buffer")
+nmap("]b", ":bnext<cr>", "Go to next buffer")
+nmap("[b", ":bprevious<cr>", "Go to previous buffer")
 
 -- Substitute
 vim.keymap.set(
   "n",
   "<leader>ss",
-  [[<cmd>%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]],
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]],
   { desc = "Substitute highlighted word" }
 )
 
@@ -110,5 +110,5 @@ vmap("<", "<gv", "Left indent")
 vmap(">", ">gv", "Right indent")
 
 -- Move selected text
-vmap("J", "<cmd>m '>+1<CR>gv=gv", "Move Selected UP")
-vmap("K", "<cmd>m '<-2<CR>gv=gv", "Move Selected DOWN")
+vmap("<A-j>", ":m '>+1<cr>gv=gv", "Move Selected UP")
+vmap("<A-k>", ":m '<-2<cr>gv=gv", "Move Selected DOWN")
