@@ -2,7 +2,7 @@ local awful = require("awful")
 local beautiful = require("beautiful")
 local wibox = require("wibox")
 
-local wibar = require("wibar")
+local bar = require("bar")
 
 screen.connect_signal("request::wallpaper", function(s)
   awful.wallpaper({
@@ -18,9 +18,9 @@ end)
 
 screen.connect_signal("request::desktop_decoration", function(s)
   awful.tag({ "", "", "", "", "" }, s, awful.layout.layouts[1])
-  s.promptbox = wibar.promptbox.new()
-  s.layoutbox = wibar.layoutbox.new(s)
-  s.taglist = wibar.taglist.new(s)
-  --[[ s.tasklist = wibar.tasklist.new(s) ]]
-  s.wibox = wibar.bar.new(s)
+  s.promptbox = bar.promptbox.new()
+  s.layoutbox = bar.layoutbox.new(s)
+  s.taglist = bar.taglist.new(s)
+  --[[ s.tasklist = bar.tasklist.new(s) ]]
+  s.wibox = bar.skeleton.new(s)
 end)

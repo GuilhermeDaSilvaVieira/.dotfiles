@@ -1,38 +1,38 @@
-local bar = {}
+local skeleton = {}
 
 local awful = require("awful")
 local wibox = require("wibox")
 
 local config = require("config")
-local widgets = require("widgets")
+local modules = require("bar.modules")
 local menu = require("menus")
 
-function bar.new(s)
+function skeleton.new(s)
   return awful.wibar({
     screen = s,
     position = "top",
     widget = {
       layout = wibox.layout.align.horizontal,
-      -- left widgets
+      -- left modules
       {
         layout = wibox.layout.fixed.horizontal,
         menu.launcher,
         s.taglist,
       },
-      -- middle widgets
+      -- middle modules
       {
         layout = wibox.layout.ratio.horizontal,
         wibox.container.place(config.textclock),
       },
-      -- right widgets
+      -- right modules
       {
         layout = wibox.layout.fixed.horizontal,
         wibox.widget.systray(),
-        widgets.username.username,
-        widgets.volume.volume,
+        modules.username.username,
+        modules.volume.volume,
       },
     },
   })
 end
 
-return bar
+return skeleton

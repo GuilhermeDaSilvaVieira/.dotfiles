@@ -3,7 +3,7 @@ local naughty = require("naughty")
 
 local config = require("config")
 local mod = require("bindings.mod")
-local volume = require("widgets.volume")
+local volume = require("bar.modules.volume")
 
 local scale = true
 local isDark = true
@@ -31,7 +31,7 @@ awful.keyboard.append_global_keybindings({
   awful.key({
     modifiers = { mod.super },
     key = "y",
-    description = "toggle wibar",
+    description = "toggle bar",
     group = "user",
     on_press = function()
       awful.screen.focused().wibox.visible =
