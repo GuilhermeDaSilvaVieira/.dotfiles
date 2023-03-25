@@ -11,8 +11,7 @@ local isDark = true
 -- user awesome keys
 awful.keyboard.append_global_keybindings({
   awful.key({
-    modifiers = { mod.super },
-    key = "b",
+    modifiers = { mod.super }, key = "b",
     description = "open browser",
     group = "user",
     on_press = function()
@@ -108,15 +107,6 @@ awful.keyboard.append_global_keybindings({
       awful.spawn.easy_async_with_shell("maim -s " .. name, function()
         naughty.notify({ title = "Screenshot saved", text = name })
       end)
-    end,
-  }),
-  awful.key({
-    modifiers = { mod.super, mod.shift },
-    key = "t",
-    description = "open TradingView",
-    group = "user",
-    on_press = function()
-      awful.spawn("tradingview")
     end,
   }),
 })
