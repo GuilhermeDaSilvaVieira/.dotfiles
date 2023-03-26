@@ -7,23 +7,7 @@ pcall(require, "luarocks.loader")
 local beautiful = require("beautiful")
 local gears = require("gears")
 
-local themes = {
-  "default",
-  "gtk",
-  "rice",
-  "sky",
-  "xresources",
-  "zenburn",
-  "beans",
-}
-
-beautiful.init(
-  string.format(
-    "%sthemes/%s/theme.lua",
-    gears.filesystem.get_configuration_dir(),
-    themes[3]
-  )
-)
+beautiful.init(require("themes"))
 
 -- load rules
 require("rules")
