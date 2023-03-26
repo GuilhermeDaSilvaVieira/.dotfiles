@@ -3,7 +3,6 @@ local skeleton = {}
 local awful = require("awful")
 local wibox = require("wibox")
 
-local config = require("config")
 local modules = require("bar.modules")
 local menu = require("menus")
 
@@ -22,7 +21,7 @@ function skeleton.new(s)
       -- middle modules
       {
         layout = wibox.layout.ratio.horizontal,
-        wibox.container.place(config.textclock),
+        wibox.container.place(modules.clock.clock),
       },
       -- right modules
       {

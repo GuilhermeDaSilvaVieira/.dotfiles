@@ -21,6 +21,6 @@ screen.connect_signal("request::desktop_decoration", function(s)
   s.promptbox = bar.promptbox.new()
   s.layoutbox = bar.layoutbox.new(s)
   s.taglist = bar.taglist.new(s)
-  --[[ s.tasklist = bar.tasklist.new(s) ]]
+  -- s.tasklist = bar.tasklist.new(s)
   s.wibox = bar.skeleton.new(s)
 end)
