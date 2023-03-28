@@ -74,7 +74,13 @@ return {
     require("mason").setup()
 
     local servers = {
-      rust_analyzer = {},
+      rust_analyzer = {
+        ["rust-analyzer"] = {
+          check = {
+            command = "clippy",
+          },
+        },
+      },
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },
