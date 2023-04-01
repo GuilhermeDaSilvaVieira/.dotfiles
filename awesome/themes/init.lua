@@ -8,8 +8,8 @@ local gfs = require("gears.filesystem")
 local themes_path = gfs.get_configuration_dir() .. "themes/"
 local scheme = require("themes.schemes.cobalt2")
 
-theme.useless_gap = dpi(4)
-theme.border_width = dpi(0.5)
+theme.useless_gap = dpi(5)
+theme.border_width = dpi(1)
 
 theme.menu_height = dpi(20)
 theme.menu_width = dpi(150)
