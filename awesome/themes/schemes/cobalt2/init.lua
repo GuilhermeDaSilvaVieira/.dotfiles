@@ -4,6 +4,7 @@ local gfs = require("gears.filesystem")
 local themes_path = gfs.get_configuration_dir() .. "themes/"
 
 cobalt2.bg_normal = "#193549"
+cobalt2.bg_focus = "#185294"
 cobalt2.bg_urgent = "#700009"
 
 cobalt2.fg_normal = "#FFC600"

@@ -21,6 +21,7 @@ theme.font = "JetBrains Mono Regular 11"
 theme.wallpaper = scheme.wallpaper
 
 theme.bg_normal = scheme.bg_normal
+theme.bg_focus = scheme.bg_focus
 theme.bg_urgent = scheme.bg_urgent
 
 theme.fg_normal = scheme.fg_normal

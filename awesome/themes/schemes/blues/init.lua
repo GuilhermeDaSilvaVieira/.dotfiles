@@ -4,6 +4,7 @@ local gfs = require("gears.filesystem")
 local themes_path = gfs.get_configuration_dir() .. "themes/"
 
 blues.bg_normal = "#222222"
+blues.bg_focus = "#444444"
 blues.bg_urgent = "#ff9900"
 
 blues.fg_normal = "#9fccff"
