@@ -25,6 +25,7 @@ theme.bg_focus = scheme.bg_focus
 theme.bg_urgent = scheme.bg_urgent
 
 theme.fg_normal = scheme.fg_normal
+theme.fg_focus = scheme.fg_focus
 
 theme.taglist_fg_focus = scheme.taglist_fg_focus
 theme.taglist_bg_focus = scheme.taglist_bg_focus

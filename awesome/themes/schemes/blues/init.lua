@@ -8,6 +8,7 @@ blues.bg_focus = "#444444"
 blues.bg_urgent = "#ff9900"
 
 blues.fg_normal = "#9fccff"
+blues.fg_focus = blues.fg_normal
 
 blues.taglist_fg_focus = "#5a63f7"
 blues.taglist_fg_occupied = "#5ac1f7"
