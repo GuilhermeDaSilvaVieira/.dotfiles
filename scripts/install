@@ -16,3 +16,4 @@ ln -s ~/.dotfiles/zathura/ ~/.config/
 ln -s ~/.dotfiles/chrome/ ~/.librewolf/*-release/
 ln -s ~/.dotfiles/MangoHud/ ~/.config/
 ln -s ~/.dotfiles/cava/ ~/.config/
+ln -s /run/media/$USER/ ~/media
