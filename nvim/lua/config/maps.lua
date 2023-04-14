@@ -64,7 +64,7 @@ xmap("<leader>p", '"_dP', "Keep previous paste")
 nmap("<leader>w", ":w<cr>", "Save buffer")
 
 -- Toggle spell checker
-nmap("<leader>sc", ":set spell!<cr>", "Toggle spell checker")
+nmap("<leader>sc", ":set spell! | set spell? <cr>", "Toggle spell checker")
 
 -- Keep cursor on center
 nmap("J", "mzJ`z")
