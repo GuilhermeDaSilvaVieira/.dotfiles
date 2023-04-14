@@ -10,6 +10,9 @@ return {
 
     -- Additional lua configuration, makes nvim stuff amazing
     "folke/neodev.nvim",
+
+    -- InlayHints
+    "lvimuser/lsp-inlayhints.nvim",
   },
   config = function()
     local function attach_navic(client, bufnr)
@@ -21,7 +24,7 @@ return {
     end
 
     local on_attach = function(client, bufnr)
-       client.server_capabilities.semanticTokensProvider = nil
+      client.server_capabilities.semanticTokensProvider = nil
 
       attach_navic(client, bufnr)
 
@@ -78,17 +81,27 @@ return {
     local servers = {
       rust_analyzer = {
         ["rust-analyzer"] = {
+          procMacro = { enable = true },
+          cargo = { allFeatures = true },
           check = {
             command = "clippy",
           },
+          checkOnSave = {
+            command = "clippy",
+            extraArgs = { "--no-deps" },
+          },
+          inlayHints = {
+            enabled = true,
+            locationLinks = false,
+          },
         },
-      },
-      lua_ls = {
-        Lua = {
-          workspace = { checkThirdParty = false },
-          telemetry = { enable = false },
-          format = { enable = false },
-          settings = { completion = { callSnippet = "Replace" } },
+        lua_ls = {
+          Lua = {
+            workspace = { checkThirdParty = false },
+            telemetry = { enable = false },
+            format = { enable = false },
+            settings = { completion = { callSnippet = "Replace" } },
+          },
         },
       },
     }
@@ -105,6 +118,20 @@ return {
           on_attach = on_attach,
           settings = servers[server_name],
         })
+      end,
+    })
+    require("lsp-inlayhints").setup()
+    vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
+    vim.api.nvim_create_autocmd("LspAttach", {
+      group = "LspAttach_inlayhints",
+      callback = function(args)
+        if not (args.data and args.data.client_id) then
+          return
+        end
+
+        local bufnr = args.buf
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        require("lsp-inlayhints").on_attach(client, bufnr)
       end,
     })
 
