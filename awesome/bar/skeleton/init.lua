@@ -28,7 +28,8 @@ function skeleton.new(s)
         layout = wibox.layout.fixed.horizontal,
         wibox.widget.systray(),
         modules.username.username,
-        modules.volume.volume,
+        wibox.widget.textbox(" "),
+        modules.volume.widget,
       },
     },
   })
