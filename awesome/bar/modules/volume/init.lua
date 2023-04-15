@@ -6,10 +6,7 @@ local gears = require("gears")
 
 local config = require("config")
 
-local watch = [[
-fish -c "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'"
-]]
-
+local watch = [[ bash -c "~/.config/awesome/bar/modules/volume/volume.sh" ]]
 volume.widget = awful.widget.watch(watch, 0.01)
 
 function volume.show_percent_notification()
