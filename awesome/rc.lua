@@ -1,12 +1,12 @@
 -- awesome_mode: api-level=4:screen=on
 
+-- TODO: Redshift toggle widget
+
 -- load luarocks if installed
 pcall(require, "luarocks.loader")
 
 -- Load theme
 local beautiful = require("beautiful")
-local gears = require("gears")
-
 beautiful.init(require("themes"))
 
 -- load rules
@@ -21,6 +21,7 @@ require("run_on_startup")
 -- Load key and mouse bindings
 require("bindings")
 
+local gears = require("gears")
 -- Run garbage collector regularly to prevent memory leaks
 gears.timer({
   timeout = 30,
