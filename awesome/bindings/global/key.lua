@@ -1,4 +1,7 @@
 local awful = require("awful")
+local gears = require("gears")
+local wibox = require("wibox")
+local beautiful = require("beautiful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local menubar = require("menubar")
 
@@ -221,24 +224,6 @@ awful.keyboard.append_global_keybindings({
       awful.tag.incnmaster(-1, nil, true)
     end,
   }),
-  awful.key({
-    modifiers = { mod.super },
-    key = "space",
-    description = "select next",
-    group = "layout",
-    on_press = function()
-      awful.layout.inc(1)
-    end,
-  }),
-  awful.key({
-    modifiers = { mod.super, mod.shift },
-    key = "space",
-    description = "select previous",
-    group = "layout",
-    on_press = function()
-      awful.layout.inc(-1)
-    end,
-  }),
 })
 
 awful.keyboard.append_global_keybindings({
@@ -308,4 +293,90 @@ awful.keyboard.append_global_keybindings({
       end
     end,
   }),
+})
+
+local layoutlist = awful.widget.layoutlist({
+  base_layout = wibox.widget({
+    spacing = 5,
+    forced_num_cols = 5,
+    layout = wibox.layout.grid.vertical,
+  }),
+  widget_template = {
+    {
+      {
+        id = "icon_role",
+        forced_height = 62,
+        forced_width = 62,
+        widget = wibox.widget.imagebox,
+      },
+      margins = 4,
+      widget = wibox.container.margin,
+    },
+    id = "background_role",
+    forced_width = 64,
+    forced_height = 64,
+    shape = gears.shape.rounded_rect,
+    widget = wibox.container.background,
+  },
+})
+
+local layout_popup = awful.popup({
+  widget = wibox.widget({
+    layoutlist,
+    margins = 4,
+    widget = wibox.container.margin,
+  }),
+  border_color = beautiful.border_color,
+  border_width = beautiful.border_width,
+  placement = awful.placement.centered,
+  ontop = true,
+  visible = false,
+  shape = gears.shape.rounded_rect,
+})
+
+-- Make sure you remove the default Mod4+Space and Mod4+Shift+Space
+-- keybindings before adding this.
+awful.keygrabber({
+  start_callback = function()
+    layout_popup.visible = true
+  end,
+  stop_callback = function()
+    layout_popup.visible = false
+  end,
+  export_keybindings = true,
+  stop_event = "release",
+  stop_key = { "Escape", "Super_L", "Super_R" },
+  keybindings = {
+    {
+      { mod.super },
+      " ",
+      function()
+        awful.layout.set(
+          (
+            gears.table.cycle_value(
+              layoutlist.layouts,
+              layoutlist.current_layout,
+              1
+            )
+          )
+        )
+      end,
+    },
+    {
+      { mod.super, "Shift" },
+      " ",
+      function()
+        awful.layout.set(
+          (
+            gears.table.cycle_value(
+              layoutlist.layouts,
+              layoutlist.current_layout,
+              -1
+            )
+          ),
+          nil
+        )
+      end,
+    },
+  },
 })
