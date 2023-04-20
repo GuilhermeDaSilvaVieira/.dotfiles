@@ -11,7 +11,8 @@ local isDark = true
 -- user awesome keys
 awful.keyboard.append_global_keybindings({
   awful.key({
-    modifiers = { mod.super }, key = "b",
+    modifiers = { mod.super },
+    key = "b",
     description = "open browser",
     group = "user",
     on_press = function()
