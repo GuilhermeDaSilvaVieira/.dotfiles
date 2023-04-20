@@ -27,9 +27,12 @@ function skeleton.new(s)
       {
         layout = wibox.layout.fixed.horizontal,
         wibox.widget.systray(),
+        modules.volume.widget,
+        wibox.widget.textbox(" "),
         modules.username.username,
         wibox.widget.textbox(" "),
-        modules.volume.widget,
+        modules.power.widget(),
+        wibox.widget.textbox(" "),
       },
     },
   })
