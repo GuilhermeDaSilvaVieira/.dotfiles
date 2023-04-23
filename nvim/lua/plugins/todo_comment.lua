@@ -30,5 +30,18 @@ return {
       desc = "[S]earch [T]odo",
     },
   },
-  config = true,
+  config = function()
+    require("todo-comments").setup({
+      search = {
+        args = {
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--hidden",
+        },
+      },
+    })
+  end,
 }
