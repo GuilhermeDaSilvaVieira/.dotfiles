@@ -15,15 +15,10 @@ echo 'KEYMAP=br-abnt2' >> /etc/vconsole.conf
 # Host name
 echo 'arch' >> /etc/hostname
 
-# Root user
-echo 'Root'
-passwd
-
-# Installs neovim
-pacman -Sy --noconfirm --needed neovim
-
-# Open multilib
-nvim /etc/pacman.conf
+# Pacman config
+sed -i 's/#Color/Color/' /etc/pacman.conf
+sed -i 's/#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 
 # Install all needed packages
 pacman -Sy --noconfirm --needed doas grub efibootmgr dosfstools mtools p7zip gc\
@@ -37,7 +32,7 @@ pacman -Sy --noconfirm --needed doas grub efibootmgr dosfstools mtools p7zip gc\
 	starship ripgrep nvidia-utils cmatrix bluez bluez-utils udisks2 lazygit bison\
 	automake debugedit fakeroot flex guile libisl libmpc patch pkgconf texinfo\
 	which cups maim linux-headers pipewire-pulse pipewire-jack pipewire-audio\
-	warpinator
+	warpinator neovim noto-fonts-emoji
 
 # Only the group wheel has superuser permission
 echo 'permit keepenv persist :wheel' >> /etc/doas.conf
@@ -48,8 +43,10 @@ echo 'blacklist nouveau' >> /etc/modprobe.d/blacklist.conf
 # Change shell to fish
 chsh -s /bin/fish
 
-# Set timeout = 0 and enable os-prober
-nvim /etc/default/grub
+# Set timeout = 0
+sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub
+# Enable os-prober
+sed -i 's/\#GRUB_DISABLE_OS_PROBER/GRUB_DISABLE_OS_PROBER' /etc/default/grub
 
 # Mount boot/EFI partition
 mount --mkdir /dev/sda1 /boot/EFI
@@ -72,6 +69,10 @@ systemctl enable cups
 
 # Enable bluetooth
 systemctl enable bluetooth
+
+# Root user
+echo 'Root'
+passwd
 
 # Work user
 useradd -m -G wheel,audio,video,optical,storage,libvirt -s /bin/fish work

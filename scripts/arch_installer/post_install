@@ -10,8 +10,13 @@ makepkg -si
 cd ..
 rm paru-bin -rf
 
-# Use doas instead of sudo
-doas nvim /etc/paru.conf
+# Paru config
+doas sed -i 's/\#BottomUp/BottomUp/' /etc/paru.conf
+doas sed -i 's/\#RemoveMake/RemoveMake/' /etc/paru.conf
+doas sed -i 's/\#CleanAfter/CleanAfter/' /etc/paru.conf
+doas sed -i 's/\#\[bin\]/\[bin\]/' /etc/paru.conf
+doas sed -i 's/\#FileManager = vifm/FileManager = lf/' /etc/paru.conf
+doas sed -i 's/\#Sudo = doas/Sudo = \/bin\/doas/' /etc/paru.conf
 
 # Install AUR packages    
 paru -S awesome-git librewolf-bin ttf-ms-fonts tradingview fastfetch jmtpfs\

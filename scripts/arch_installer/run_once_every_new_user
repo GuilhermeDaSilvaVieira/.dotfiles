@@ -5,4 +5,6 @@ xdg-mime default org.pwmt.zathura.desktop application/pdf
 
 # Make startx works with awesome
 cp /etc/X11/xinit/xinitrc ~/.xinitrc
-nvim ~/.xinitrc
+head -n -5 ~/.xinitrc > ~/temp
+echo 'exec awesome' >> ~/temp
+mv ~/temp ~/.xinitrc
