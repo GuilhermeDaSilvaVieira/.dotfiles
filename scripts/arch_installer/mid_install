@@ -32,7 +32,7 @@ pacman -Sy --noconfirm --needed doas grub efibootmgr dosfstools mtools p7zip gc\
 	starship ripgrep nvidia-utils cmatrix bluez bluez-utils udisks2 lazygit bison\
 	automake debugedit fakeroot flex guile libisl libmpc patch pkgconf texinfo\
 	which cups maim linux-headers pipewire-pulse pipewire-jack pipewire-audio\
-	warpinator neovim noto-fonts-emoji
+	warpinator neovim noto-fonts-emoji ttf-jetbrains-mono
 
 # Only the group wheel has superuser permission
 echo 'permit keepenv persist :wheel' >> /etc/doas.conf
