@@ -9,7 +9,7 @@ local dpi = xresources.apply_dpi
 
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_configuration_dir() .. "themes/"
-local scheme = require("themes.schemes.blues")
+local scheme = require("themes.schemes.cobalt2")
 
 local function recolor(image)
   gears.color.recolor_image(image, theme.fg_normal)
