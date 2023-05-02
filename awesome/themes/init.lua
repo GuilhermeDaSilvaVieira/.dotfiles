@@ -23,7 +23,7 @@ local function recolor_image_from_file(file_path, new_color)
   return image
 end
 
-theme.font = "JetBrains Mono Regular 11"
+theme.font = "JetBrainsMonoNL 11"
 
 theme.menu_height = dpi(20)
 theme.menu_width = dpi(150)
