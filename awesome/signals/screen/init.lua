@@ -17,7 +17,7 @@ screen.connect_signal("request::wallpaper", function(s)
 end)
 
 screen.connect_signal("request::desktop_decoration", function(s)
-  awful.tag({ "", "", "", "", "" }, s, awful.layout.layouts[1])
+  awful.tag({ " ", " ", " ", " ", " " }, s, awful.layout.layouts[1])
   s.promptbox = bar.promptbox.new()
   s.layoutbox = bar.layoutbox.new(s)
   s.taglist = bar.taglist.new(s)
