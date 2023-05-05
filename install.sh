@@ -1,7 +1,10 @@
+#! /bin/bash
+
 # Remove any existing config folders that can have a conflict
 cd ~/.config/
 rm awesome fish kitty nvim picom starship.toml lf btop zathura MangoHud cava\
  ~/.librewolf/*-release/chrome -rf
+rm ~/media
 
 # Symlink everything
 ln -s ~/.dotfiles/awesome/ ~/.config/
