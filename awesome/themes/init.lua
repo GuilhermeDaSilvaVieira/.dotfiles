@@ -45,7 +45,7 @@ theme.taglist_bg_focus = scheme.taglist_bg_focus
 theme.taglist_fg_occupied = scheme.taglist_fg_occupied
 
 -- Border
-theme.useless_gap = dpi(5)
+theme.useless_gap = dpi(1)
 theme.border_width = dpi(1)
 theme.border_color_normal = scheme.border_color_normal
 theme.border_color_active = scheme.border_color_active
