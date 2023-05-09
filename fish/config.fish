@@ -6,7 +6,7 @@ alias l "exa -lag --sort=type"
 alias v "nvim (fzf)"
 alias lf "~/.dotfiles/lf/lfrun"
 
-# fish_add_path $HOME/.dotfiles/scripts/
+fish_add_path $HOME/.cargo/bin/
 
 set fish_greeting
 
