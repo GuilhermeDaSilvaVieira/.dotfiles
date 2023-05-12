@@ -3,7 +3,8 @@
 -- Set highlight on search
 vim.o.hlsearch = true
 
--- Make line numbers default
+-- Set relative and absolute numbers 
+vim.wo.relativenumber = true
 vim.wo.number = true
 
 -- Enable mouse mode
