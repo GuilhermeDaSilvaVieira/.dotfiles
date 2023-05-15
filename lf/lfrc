@@ -3,7 +3,7 @@ set preview true
 set icons true
 set ignorecase true
 set drawbox true
-
+set mouse true
 set relativenumber true
 set number true
 
