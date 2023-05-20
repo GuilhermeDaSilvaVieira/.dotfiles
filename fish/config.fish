@@ -12,7 +12,9 @@ set fish_greeting
 
 starship init fish | source
 
-source $HOME/.dotfiles/fish/lf_icons.fish
+if test -f "$HOME/.dotfiles/fish/lf_icons.fish"
+  source $HOME/.dotfiles/fish/lf_icons.fish
+end
 
 export FZF_DEFAULT_COMMAND="fd -H"
 export BROWSER="/usr/bin/librewolf"
