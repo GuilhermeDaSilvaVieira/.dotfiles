@@ -1,10 +1,13 @@
 local awful = require("awful")
 
 local cmd = {
-  "picom", -- transparency
-  "redshift -P -O 3400", -- light filter
-  "xset s off", -- keep screen on
-  "xset s off -dpms", -- keep screen on
+  -- Compositor
+  "picom",
+  -- Blue light filter
+  "redshift -P -O 3400",
+  -- Keep screen on
+  "xset s off",
+  "xset s off -dpms",
 }
 
 for i = 1, #cmd do
