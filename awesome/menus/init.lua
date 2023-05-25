@@ -3,6 +3,7 @@ local menu = {}
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local beautiful = require("beautiful")
+local menubar = require("menubar")
 
 local config = require("config")
 
@@ -13,16 +14,16 @@ menu.launcher = awful.widget.launcher({
 
 menu.awesomemenu = {
   {
-    "hotkeys",
+    "Hotkeys",
     function()
       hotkeys_popup.show_help(nil, awful.screen.focused())
     end,
   },
-  { "manual", config.manual_cmd },
-  { "edit config", config.editor_cmd .. " " .. awesome.conffile },
-  { "restart", awesome.restart },
+  { "Manual", config.manual_cmd },
+  { "Edit Config", config.editor_cmd .. " " .. awesome.conffile },
+  { "Restart", awesome.restart },
   {
-    "quit",
+    "Quit",
     function()
       awesome.quit()
     end,
@@ -31,25 +32,25 @@ menu.awesomemenu = {
 
 menu.powermenu = {
   {
-    "shutdown",
+    "Shutdown",
     function()
       awesome.spawn("shutdown now")
     end,
   },
   {
-    "reboot",
+    "Reboot",
     function()
       awesome.spawn("reboot")
     end,
   },
   {
-    "suspend",
+    "Suspend",
     function()
       awesome.spawn("systemctl suspend")
     end,
   },
   {
-    "log out",
+    "Log Out",
     function()
       awesome.spawn("killall -u " .. os.getenv("USER"))
     end,
@@ -58,10 +59,16 @@ menu.powermenu = {
 
 menu.mainmenu = awful.menu({
   items = {
-    { "awesome", menu.awesomemenu },
-    { "power menu", menu.powermenu },
-    { "open browser", config.browser },
-    { "open terminal", config.terminal },
+    { "Awesome", menu.awesomemenu },
+    {
+      "Launcher",
+      function()
+        menubar.show()
+      end,
+    },
+    { "Browser", config.browser },
+    { "Terminal", config.terminal },
+    { "Power", menu.powermenu },
   },
 })
 
