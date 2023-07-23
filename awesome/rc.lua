@@ -1,6 +1,6 @@
 -- awesome_mode: api-level=4:screen=on
 
--- TODO: Redshift toggle widget
+-- TODO: Fix Tasklist showing on fullscreen
 
 -- load luarocks if installed
 pcall(require, "luarocks.loader")

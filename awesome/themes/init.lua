@@ -9,7 +9,7 @@ local dpi = xresources.apply_dpi
 
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_configuration_dir() .. "themes/"
-local scheme = require("themes.schemes.cobalt2")
+local scheme = require("themes.schemes.blues")
 
 local function recolor(image)
   gears.color.recolor_image(image, theme.fg_normal)
@@ -23,7 +23,7 @@ local function recolor_image_from_file(file_path, new_color)
   return image
 end
 
-theme.font = "JetBrainsMonoNL 11"
+theme.font = "JetBrainsMono Nerd Font Mono 11"
 
 theme.menu_height = dpi(20)
 theme.menu_width = dpi(150)
