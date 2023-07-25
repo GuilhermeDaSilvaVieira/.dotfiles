@@ -1,5 +1,5 @@
 ﻿if status is-interactive
-	neofetch
+  freshfetch
 end
 
 alias l "exa -lag --sort=type"
