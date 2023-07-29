@@ -1,5 +1,5 @@
-if [[ $(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}') == *no* ]]; then
-	pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'
+if [[ $(wpctl get-volume @DEFAULT_SINK@ | awk '{print $3}') == "[MUTED]" ]]; then
+	wpctl get-volume @DEFAULT_SINK@ | awk '{print $2*100"M"}'
 else
-	pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/\%/M/'
+	wpctl get-volume @DEFAULT_SINK@ | awk '{print $2*100"%"}'
 fi

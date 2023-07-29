@@ -10,7 +10,7 @@ local watch = [[ bash -c "~/.config/awesome/bar/modules/volume/volume.sh" ]]
 volume.widget = awful.widget.watch(watch, 0.01)
 
 function volume.show_percent_notification()
-  local command = "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'"
+  local command = "wpctl get-volume @DEFAULT_SINK@ | awk '{print $2*100\"%\"}'"
 
   awful.spawn.easy_async_with_shell(command, function(out)
     naughty.notification({
@@ -21,7 +21,7 @@ function volume.show_percent_notification()
 end
 
 function volume.show_switch_notification()
-  local command = "pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}'"
+  local command = [[ bash -c "~/.config/awesome/bar/modules/volume/volume_mute.sh" ]]
 
   awful.spawn.easy_async_with_shell(command, function(out)
     naughty.notification({
@@ -33,19 +33,16 @@ end
 
 volume.widget:buttons(gears.table.join(
   awful.button({}, 1, function()
-    awful.spawn(config.terminal .. " -e alsamixer")
-  end),
-  awful.button({}, 2, function()
     awful.spawn("pavucontrol")
   end),
   awful.button({}, 3, function()
-    awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")
+    awful.spawn("wpctl set-mute @DEFAULT_SINK@ toggle")
   end),
   awful.button({}, 4, function()
-    awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%")
+    awful.spawn("wpctl set-volume @DEFAULT_SINK@ 2%+")
   end),
   awful.button({}, 5, function()
-    awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%")
+    awful.spawn("wpctl set-volume @DEFAULT_SINK@ 2%-")
   end)
 ))
 

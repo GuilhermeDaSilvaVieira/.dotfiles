@@ -72,7 +72,7 @@ awful.keyboard.append_global_keybindings({
     description = "increase volume by 2%",
     group = "user",
     on_press = function()
-      awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%")
+      awful.spawn("wpctl set-volume @DEFAULT_SINK@ 2%+")
       volume.show_percent_notification()
     end,
   }),
@@ -82,7 +82,7 @@ awful.keyboard.append_global_keybindings({
     description = "decrease volume by 2%",
     group = "user",
     on_press = function()
-      awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%")
+      awful.spawn("wpctl set-volume @DEFAULT_SINK@ 2%-")
       volume.show_percent_notification()
     end,
   }),
@@ -92,7 +92,7 @@ awful.keyboard.append_global_keybindings({
     description = "mute / unmute",
     group = "user",
     on_press = function()
-      awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")
+      awful.spawn("wpctl set-mute @DEFAULT_SINK@ toggle")
       volume.show_switch_notification()
     end,
   }),
