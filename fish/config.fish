@@ -5,8 +5,9 @@
   freshfetch
 end
 
-alias l "exa -lag --sort=type"
+alias l "eza -lag --sort=type"
 alias v "nvim (fzf)"
+alias h "hx (fzf)"
 
 fish_add_path $HOME/.cargo/bin/
 
