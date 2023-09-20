@@ -6,8 +6,22 @@
 end
 
 alias l "eza -lag --sort=type"
-alias v "nvim (fzf)"
-alias h "hx (fzf)"
+
+function v
+    if test -n "$argv"
+        nvim $argv
+    else
+        nvim (fzf)
+    end
+end
+
+function h
+    if test -n "$argv"
+        hx $argv
+    else
+        hx (fzf)
+    end
+end
 
 fish_add_path $HOME/.cargo/bin/
 
