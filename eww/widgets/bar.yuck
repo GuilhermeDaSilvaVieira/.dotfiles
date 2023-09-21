@@ -1,3 +1,4 @@
+
 (
   deflisten username
   "whoami"
@@ -163,12 +164,13 @@
       (
         label
         :text volume
+        :angle 90
       )
     )
     (
       label
       :text username
-      :angle 270
+      :angle 90
     )
 
     (power)
@@ -188,40 +190,4 @@
     (center)
     (right)
   )
-)
-
-(
-  defwindow calendar
-  :monitor 0
-  :geometry
-  (
-    geometry
-    :x "0"
-    :y "0"
-    :width "270px"
-    :height "60px"
-    :anchor "left center"
-  )
-
-  (cal)
-)
-
-(
-  defwindow bar
-  :monitor 0
-  :geometry
-  (
-    geometry
-    :width "1%"
-    :height "100%"
-    :anchor "left center"
-  )
-
-  ; Wayland
-  :stacking "fg"
-  :exclusive true
-  :focusable false
-  :namespace "bar"
-
-  (bar)
 )

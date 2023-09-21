@@ -1,0 +1,38 @@
+(include "./widgets/bar.yuck")
+(include "./widgets/powermenu.yuck")
+
+(
+  defwindow bar
+  :monitor 0
+  :geometry
+  (
+    geometry
+    :width "1%"
+    :height "100%"
+    :anchor "left center"
+  )
+
+  ; Wayland
+  :stacking "fg"
+  :exclusive true
+  :focusable false
+  :namespace "bar"
+
+  (bar)
+)
+
+(
+  defwindow calendar
+  :monitor 0
+  :geometry
+  (
+    geometry
+    :x "0"
+    :y "0"
+    :width "270px"
+    :height "60px"
+    :anchor "left center"
+  )
+
+  (cal)
+)

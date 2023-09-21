@@ -1,8 +1,9 @@
-(
-  defpoll time
-  :interval "1s"
-  `date +'{"hour":"%H", "minute":"%M", "second":"%S"}'`
-)
+
+; (
+;   defpoll time
+;   :interval "1s"
+;   `date +'{"hour":"%H", "minute":"%M", "second":"%S"}'`
+; )
 
 (
   defwindow powermenu
@@ -36,7 +37,7 @@
     :class "layout-box"
     :space-evenly false
     :orientation "vertical"
-    :style "background-image: url('./wallpaper')"
+    :style "background-image: url('./wallpapers/wallpaper')"
 
     (
       box
@@ -99,12 +100,7 @@
         )
         (
           label
-          :text "${time.hour}
-          ${time.minute}"
-        )
-        (
-          label
-          :text "${time.second}"
+          :text "${time.hour}:${time.minute}:${time.second}"
         )
       )
       (

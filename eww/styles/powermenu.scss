@@ -4,9 +4,9 @@ $surface-lightgrey: #3d464e;
 $surface-grey: #2b3238;
 $surface-red: #f87070;
 
-* {
-  all: unset;
-}
+$green: #a1cd5e;
+$yellow: #e3d18a;
+$blue: #82aaff;
 
 .layout-box {
   background-repeat: no-repeat;
@@ -46,6 +46,15 @@ $surface-red: #f87070;
 
     &:first-child {
       color: rgba($surface-red, 0.8);
+    }
+    &:nth-child(2) {
+      color: rgba($green, 0.8);
+    }
+    &:nth-child(3) {
+      color: rgba($yellow, 0.8);
+    }
+    &:last-child {
+      color: rgba($blue, 0.8);
     }
   }
 }
