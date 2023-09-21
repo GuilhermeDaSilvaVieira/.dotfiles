@@ -9,7 +9,7 @@
 riverctl spawn "mako"
 riverctl spawn "wlsunset -t 3400 -T 3401"
 # riverctl spawn "waybar"
-riverctl spawn "eww -c ~/Development/Eww/tutorial/bar/ open bar"
+riverctl spawn "eww -c open bar"
 riverctl spawn "swaybg -i ~/.config/river/wallpapers/wallpaper.png -m fill"
 
 riverctl map normal Super+Shift Return spawn kitty
