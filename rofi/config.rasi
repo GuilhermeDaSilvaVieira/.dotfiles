@@ -1,0 +1,9 @@
+configuration {
+  display-drun: "";
+  display-window: "";
+  display-emoji: "";
+  font: "JetBrains Mono 30";
+  modi: "window,run,drun,emoji";
+}
+
+@theme "~/.config/rofi/themes/dracula.rasi"
