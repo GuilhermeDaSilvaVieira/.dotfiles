@@ -1,0 +1,49 @@
+theme = "everforest_dark"
+
+[editor]
+line-number = "relative"
+mouse = false
+bufferline = "always"
+soft-wrap.enable = true
+rulers = [80]
+cursorline = true
+auto-save = true
+idle-timeout = 0
+color-modes = true 
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false 
+
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true
+
+[editor.statusline]
+left = ["mode", "spinner", "version-control", "file-name", "file-modification-indicator"]
+center = []
+right = ["diagnostics", "selections", "position", "total-line-numbers", "file-encoding", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.whitespace]
+render = "all"
+
+[editor.indent-guides]
+render = true
+character = "╎"
+skip-levels = 1
+
+[keys.normal]
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up",
+"paste_before"]
+
+[keys.insert]
+j = { k = "normal_mode" } # Maps `jk` to exit insert mode
