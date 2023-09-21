@@ -1,0 +1,227 @@
+(
+  deflisten username
+  "whoami"
+)
+
+(
+  deflisten day
+  "date '+%d'"
+)
+
+(
+  deflisten month
+  "date '+%m'"
+)
+
+(
+  deflisten year
+  "date '+%Y'"
+)
+
+(
+  defpoll time
+  :interval "1s"
+  `date +'{"hour":"%H", "minute":"%M", "second":"%S"}'`
+)
+
+(
+  defpoll volume
+  :interval "50ms"
+  "scripts/volume.sh"
+)
+
+(
+  defvar tags "[1, 2, 4, 8, 16, 32, 64, 128, 256]"
+)
+
+(
+  defwidget taglist []
+  (
+    box
+    :class "taglist"
+    :space-evenly false
+    :orientation "v"
+    (
+      for tag in tags
+      (
+        button
+        :class "tag icons"
+        :onclick "riverctl set-focused-tags ${tag}"
+        :onrightclick "riverctl toggle-focused-tags ${tag}"
+        {
+          tag == 1   ? "" :
+          tag == 2   ? "󰈹" :
+          tag == 4   ? "" :
+          tag == 8   ? "󱓷" :
+          tag == 16  ? "󰙯" :
+          tag == 32  ? "" :
+          tag == 64  ? "󱩽" :
+          tag == 128 ? "" :
+          tag == 256 ? "" :
+          ""
+        }
+      )
+    )
+  )
+)
+
+(
+  defwidget date_time []
+  (
+    box
+    :orientation "v"
+    :valign "center"
+
+    (
+      button
+      :onclick "eww open calendar --toggle"
+      "${time.hour}"
+    )
+    (
+      button
+      :onclick "eww open calendar --toggle"
+      "${time.minute}"
+    )
+    (
+      button
+      :onclick "eww open calendar --toggle"
+      "${time.second}"
+    )
+  )
+)
+
+(
+  defwidget cal []
+  (
+    box
+    :class "cal-box"
+    :orientation "v"
+
+    (
+      box
+      :class "cal-inner-box"
+
+      (
+        calendar
+        :class "cal"
+        :day day
+        :month month
+        :year year
+      )
+    )
+  )
+)
+
+(
+  defwidget power []
+  (
+    button
+    :class "power icons"
+    :onclick "eww open powermenu; eww close bar"
+    "󰐥"
+  )
+)
+
+(
+  defwidget left []
+  (
+    box
+    :class "left"
+    :orientation "v"
+    :space-evenly false
+    :valign "start"
+
+    (taglist)
+  )
+)  ( defwidget center []
+  (
+    box
+    :class "center"
+    :orientation "v"
+    :space-evenly false
+    :valign "center"
+
+    (date_time)
+  )
+)
+
+(
+  defwidget right []
+  (
+    box
+    :class "right"
+    :space-evenly false
+    :valign "end"
+    :orientation "v"
+    :spacing 10
+
+    (
+      eventbox
+      :onscroll "scripts/scroll_volume.sh {}"
+      :onclick "pavucontrol&"
+      :onrightclick "wpctl set-mute @DEFAULT_SINK@ toggle"
+      (
+        label
+        :text volume
+      )
+    )
+    (
+      label
+      :text username
+      :angle 270
+    )
+
+    (power)
+  )
+)
+
+(
+  defwidget bar []
+  (
+    box
+    :class "bar"
+    :orientation "v"
+    :vexpand "false"
+    :hexpand "false"
+
+    (left)
+    (center)
+    (right)
+  )
+)
+
+(
+  defwindow calendar
+  :monitor 0
+  :geometry
+  (
+    geometry
+    :x "0"
+    :y "0"
+    :width "270px"
+    :height "60px"
+    :anchor "left center"
+  )
+
+  (cal)
+)
+
+(
+  defwindow bar
+  :monitor 0
+  :geometry
+  (
+    geometry
+    :width "1%"
+    :height "100%"
+    :anchor "left center"
+  )
+
+  ; Wayland
+  :stacking "fg"
+  :exclusive true
+  :focusable false
+  :namespace "bar"
+
+  (bar)
+)
