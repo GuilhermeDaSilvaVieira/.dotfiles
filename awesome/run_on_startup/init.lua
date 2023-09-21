@@ -8,6 +8,8 @@ local cmd = {
   -- Keep screen on
   "xset s off",
   "xset s off -dpms",
+  -- Faster keyboard rate
+  "xset r rate 300 60"
 }
 
 for i = 1, #cmd do
