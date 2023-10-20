@@ -118,7 +118,7 @@
   (
     button
     :class "power icons"
-    :onclick "eww open powermenu; eww close bar"
+    :onclick "eww kill; eww open powermenu"
     "󰐥"
   )
 )

@@ -75,7 +75,7 @@
       )
       (
         button
-        :onclick "eww close powermenu; eww open bar"
+        :onclick "eww kill; eww open bar"
         :class "close-btn"
         ""
       )
