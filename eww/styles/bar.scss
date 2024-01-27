@@ -1,8 +1,9 @@
-$background: #202020;
-$background-highlight: #303030;
-$foreground: #9fccff;
-$white: #e1e1e1;
-$red: #ff4d7a;
+$background: #1e2326;
+$background-highlight: #293136;
+$foreground: #83c092;
+$white: #fffbef;
+$red: #e67e80;
+$orange: #e69875;
 
 .bar {
   background: $background;
@@ -59,7 +60,7 @@ $red: #ff4d7a;
 }
 
 calendar:selected {
-  color: $white;
+  color: $orange;
 }
 
 calendar.header,
