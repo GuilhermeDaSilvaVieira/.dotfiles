@@ -16,7 +16,7 @@ riverctl spawn "swaybg -i ~/.config/river/wallpapers/florest.png -m fill"
 riverctl map normal Super+Shift Return spawn kitty
 riverctl map normal Super R spawn "rofi -show drun"
 riverctl map normal Super B spawn librewolf
-riverctl map normal Super T spawn "kitty -e fish -c lf" 
+riverctl map normal Super T spawn "kitty -e fish -c yazi" 
 
 # Reload river configuration
 riverctl map normal Super+Shift R spawn "~/.config/river/init"
