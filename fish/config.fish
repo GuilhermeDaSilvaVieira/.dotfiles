@@ -25,6 +25,7 @@ fish_add_path $HOME/.cargo/bin/
 set fish_greeting
 
 starship init fish | source
+zoxide init fish | source
 
 if test -f "$HOME/.dotfiles/fish/lf_icons.fish"
   source $HOME/.dotfiles/fish/lf_icons.fish
