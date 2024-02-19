@@ -7,10 +7,12 @@
 
 # Auto Start
 riverctl spawn "mako"
+killall "wlsunset"
 riverctl spawn "wlsunset -t 3400 -T 3401"
 # riverctl spawn "waybar"
 riverctl spawn "eww daemon"
 riverctl spawn "eww open bar"
+killall "swaybg"
 riverctl spawn "swaybg -i ~/.config/river/wallpapers/florest.png -m fill"
 
 riverctl map normal Super+Shift Return spawn kitty
