@@ -20,8 +20,8 @@ select = "underline"
 hidden = false 
 
 [editor.lsp]
-display-inlay-hints = true
-display-messages = true
+# display-inlay-hints = true
+# display-messages = true
 
 [editor.statusline]
 left = ["mode", "spinner", "version-control", "file-name", "file-modification-indicator"]
