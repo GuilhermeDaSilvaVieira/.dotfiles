@@ -23,6 +23,9 @@ riverctl map normal Super T spawn "kitty -e fish -c yazi"
 # Reload river configuration
 riverctl map normal Super+Shift R spawn "~/.config/river/init"
 
+# Close all eww windows
+riverctl map normal Super Y spawn "eww close-all"
+
 # Super+Q to close the focused view
 riverctl map normal Super+Shift C close
 
