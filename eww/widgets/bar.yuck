@@ -41,7 +41,7 @@
     box
     :class "taglist"
     :space-evenly false
-    :orientation "v"
+    :orientation "h"
     (
       for tag in tags
       (
@@ -70,23 +70,14 @@
   defwidget date_time []
   (
     box
-    :orientation "v"
+    :orientation "h"
     :valign "center"
+    :halign "center"
 
     (
       button
       :onclick "eww open calendar --toggle"
-      "${time.hour}"
-    )
-    (
-      button
-      :onclick "eww open calendar --toggle"
-      "${time.minute}"
-    )
-    (
-      button
-      :onclick "eww open calendar --toggle"
-      "${time.second}"
+      "${time.hour}:${time.minute}:${time.second}"
     )
   )
 )
@@ -96,7 +87,7 @@
   (
     box
     :class "cal-box"
-    :orientation "v"
+    :orientation "h"
 
     (
       box
@@ -128,18 +119,22 @@
   (
     box
     :class "left"
-    :orientation "v"
-    :space-evenly false
-    :valign "start"
+    :orientation "h"
+    :space-evenly true
+    :halign "start"
+    :valign "center"
 
     (taglist)
   )
-)  ( defwidget center []
+)
+
+( defwidget center []
   (
     box
     :class "center"
-    :orientation "v"
-    :space-evenly false
+    :orientation "h"
+    :space-evenly true
+    :halign "center"
     :valign "center"
 
     (date_time)
@@ -152,8 +147,9 @@
     box
     :class "right"
     :space-evenly false
-    :valign "end"
-    :orientation "v"
+    :halign "end"
+    :valign "center"
+    :orientation "h"
     :spacing 10
 
     (
@@ -164,13 +160,11 @@
       (
         label
         :text volume
-        :angle 90
       )
     )
     (
       label
       :text username
-      :angle 90
     )
 
     (power)
@@ -182,9 +176,7 @@
   (
     box
     :class "bar"
-    :orientation "v"
-    :vexpand "false"
-    :hexpand "false"
+    :orientation "h"
 
     (left)
     (center)
