@@ -1,5 +1,5 @@
 ﻿if status is-interactive
-  freshfetch
+    freshfetch | lolcat
 end
 
 alias l "eza -lag --sort=type"
@@ -28,9 +28,9 @@ starship init fish | source
 zoxide init fish | source
 
 if test -f "$HOME/.dotfiles/fish/lf_icons.fish"
-  source $HOME/.dotfiles/fish/lf_icons.fish
+    source $HOME/.dotfiles/fish/lf_icons.fish
 end
 
 if test -f "$HOME/nixos_config/.dotfiles/fish/lf_icons.fish"
-  source $HOME/nixos_config/.dotfiles/fish/lf_icons.fish
+    source $HOME/nixos_config/.dotfiles/fish/lf_icons.fish
 end
