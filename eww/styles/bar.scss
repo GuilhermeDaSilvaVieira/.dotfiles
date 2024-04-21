@@ -1,9 +1,8 @@
-$background: #1e2326;
-$background-highlight: #293136;
-$foreground: #83c092;
-$white: #fffbef;
-$red: #e67e80;
-$orange: #e69875;
+$background: #202020;
+$background-highlight: #303030;
+$foreground: #9fccff;
+$white: #e1e1e1;
+$red: #ff4d7a;
 
 .bar {
   background: $background;
@@ -19,7 +18,7 @@ $orange: #e69875;
 }
 
 .tag {
-  margin: 0px 8px;
+  margin: 4px 0px;
   border-bottom: 2px solid rgba(0,0,0,0);
 
   &:hover { 
@@ -60,7 +59,7 @@ $orange: #e69875;
 }
 
 calendar:selected {
-  color: $orange;
+  color: $white;
 }
 
 calendar.header,
