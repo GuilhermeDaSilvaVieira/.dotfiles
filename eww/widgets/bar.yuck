@@ -32,7 +32,7 @@
 )
 
 (
-  defvar tags "[1, 2, 4, 8, 16, 32, 64, 128, 256]"
+  defvar tags "[1, 2, 4, 8, 16]"
 )
 
 (
@@ -46,19 +46,15 @@
       for tag in tags
       (
         button
-        :class "tag icons"
+        :class "tag"
         :onclick "riverctl set-focused-tags ${tag}"
         :onrightclick "riverctl toggle-focused-tags ${tag}"
         {
-          tag == 1   ? "" :
-          tag == 2   ? "󰈹" :
-          tag == 4   ? "" :
-          tag == 8   ? "󱓷" :
-          tag == 16  ? "󰙯" :
-          tag == 32  ? "" :
-          tag == 64  ? "󱩽" :
-          tag == 128 ? "" :
-          tag == 256 ? "" :
+          tag == 1   ? "1" :
+          tag == 2   ? "2" :
+          tag == 4   ? "3" :
+          tag == 8   ? "4" :
+          tag == 16  ? "5" :
           ""
         }
       )
