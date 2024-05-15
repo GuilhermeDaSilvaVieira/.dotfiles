@@ -1,5 +1,5 @@
 ﻿if status is-interactive
-    freshfetch | lolcat
+    # freshfetch | lolcat
 end
 
 alias l "eza -lag --sort=type"
