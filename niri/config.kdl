@@ -193,7 +193,7 @@ spawn-at-startup "wlsunset" "-t" "3400" "-T" "3401"
 spawn-at-startup "mako"
 spawn-at-startup "eww" "daemon"
 spawn-at-startup "eww" "open" "bar"
-spawn-at-startup "swaybg" "-i" "~/wallpaper.png" "-m" "stretch"
+spawn-at-startup "swaybg" "-i" "wallpaper.png" "-m" "stretch"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
