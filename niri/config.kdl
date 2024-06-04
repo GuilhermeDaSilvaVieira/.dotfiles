@@ -189,13 +189,11 @@ layout {
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
 // spawn-at-startup "alacritty" "-e" "fish"
-spawn-at-startup "killall wlsunset"
-spawn-at-startup "wlsunset -t 3400 -T 3401"
+spawn-at-startup "wlsunset" "-t" "3400" "-T" "3401"
 spawn-at-startup "mako"
-spawn-at-startup "eww daemon"
-spawn-at-startup "eww open bar"
-spawn-at-startup "killall swaybg"
-spawn-at-startup "swaybg -i ~/wallpaper.png -m stretch"
+spawn-at-startup "eww" "daemon"
+spawn-at-startup "eww" "open" "bar"
+spawn-at-startup "swaybg" "-i" "~/wallpaper.png" "-m" "stretch"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -263,7 +261,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T { spawn "alacritty"; }
+    Mod+T { spawn "kitty"; }
     Mod+D { spawn "fuzzel"; }
     Super+Alt+L { spawn "swaylock"; }
 
