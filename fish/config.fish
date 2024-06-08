@@ -24,7 +24,13 @@ fish_add_path $HOME/.cargo/bin/
 
 set fish_greeting
 
+# Starship Prompt
+function starship_transient_prompt_func
+    starship module character
+end
 starship init fish | source
+enable_transience
+
 zoxide init fish | source
 
 if test -f "$HOME/.dotfiles/fish/lf_icons.fish"
