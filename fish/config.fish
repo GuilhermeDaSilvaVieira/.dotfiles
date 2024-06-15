@@ -3,6 +3,7 @@
 end
 
 alias l "eza -lag --sort=type"
+alias lt "eza --tree"
 
 function v
     if test -n "$argv"
