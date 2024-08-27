@@ -153,6 +153,8 @@
     :orientation "v"
     :spacing 10
 
+    (systray)
+
     (
       eventbox
       :onscroll "scripts/scroll_volume.sh {}"
