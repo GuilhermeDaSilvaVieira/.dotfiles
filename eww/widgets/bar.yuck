@@ -101,6 +101,7 @@
       (
         calendar
         :class "cal"
+        :show-week-numbers true
         :day day
         :month month
         :year year

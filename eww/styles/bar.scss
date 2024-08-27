@@ -45,15 +45,12 @@ $red: #ff4d7a;
   font-weight: bold;
   color: $foreground;
 }
+
 .cal-inner-box {
   padding: 1rem 1rem .2rem; 
 }
 
 .cal {
-  &.highlight {
-    padding: 10rem;
-  }
-
   padding: .8rem .25rem 0rem;
   margin-left: 10px;
 }
