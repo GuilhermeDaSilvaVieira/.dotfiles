@@ -1,7 +1,7 @@
 local config = {}
 
 config.terminal = os.getenv("TERMINAL") or "kitty"
-config.browser = os.getenv("BROWSER") or "librewolf"
+config.browser = os.getenv("BROWSER") or "zen"
 config.editor = os.getenv("EDITOR") or "nvim"
 
 config.editor_cmd = config.terminal .. " -e " .. config.editor

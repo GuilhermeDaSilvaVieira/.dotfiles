@@ -16,7 +16,7 @@ awful.keyboard.append_global_keybindings({
     description = "open browser",
     group = "user",
     on_press = function()
-      awful.spawn("librewolf")
+      awful.spawn("zen")
     end,
   }),
   awful.key({
