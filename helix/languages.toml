@@ -11,3 +11,9 @@ command = "clippy"
 [[language]]
 name = "markdown"
 indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "python"
+# language-servers = [ "pyright"]
+auto-format = true
+formatter = {command = 'black', args = ["--quiet", "-"]}
