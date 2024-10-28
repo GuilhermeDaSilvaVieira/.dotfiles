@@ -22,10 +22,46 @@ function h
 end
 
 function nsync
-    cd /home/franky/nixos_config
-    nix flake update
-    nixos-rebuild build --flake .
-    doas ./result/bin/switch-to-configuration switch
+    # Avoids multiple arguments
+    if test (count $argv) -gt 1
+        echo "Too many arguments"
+        return
+    end
+
+    set initial_dir $PWD
+
+    echo Copying
+    cp -r $HOME/nixos_config/ $HOME/nixos_config_without_git
+
+    echo "Directory: $PWD"
+    cd $HOME/nixos_config_without_git
+
+    echo "Removing .git"
+    rm $HOME/nixos_config_without_git/.git/ -rf
+
+    # Check if the first argument is '-s'
+    if test (count $argv) -gt 0
+        if test "$argv[1]" = -s
+            echo "Updating..."
+            nix flake update --flake .
+        else
+            echo "Invalid argument"
+            echo "Removing copy"
+            rm $HOME/nixos_config_without_git/ -rf
+            echo "Move back to initial directory"
+            cd $initial_dir
+            return
+        end
+    end
+
+    echo "Rebuilding..."
+    doas nixos-rebuild switch --flake .
+
+    echo "Removing copy"
+    rm $HOME/nixos_config_without_git/ -rf
+
+    echo "Move back to initial directory"
+    cd $initial_dir
 end
 
 fish_add_path $HOME/.cargo/bin/
