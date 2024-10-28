@@ -43,7 +43,7 @@ function nsync
     if test (count $argv) -gt 0
         if test "$argv[1]" = -s
             echo "Updating..."
-            nix flake update --flake .
+            nix flake update
         else
             echo "Invalid argument"
             echo "Removing copy..."
