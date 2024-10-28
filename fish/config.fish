@@ -30,14 +30,14 @@ function nsync
 
     set initial_dir $PWD
 
-    echo Copying
+    echo "Copying..."
     cp -r $HOME/nixos_config/ $HOME/nixos_config_without_git
 
-    echo "Directory: $PWD"
-    cd $HOME/nixos_config_without_git
+    echo "Changing to copy directory..."
+    cd $HOME/nixos_config_without_git || return # Exit if cd fails
 
     echo "Removing .git"
-    rm $HOME/nixos_config_without_git/.git/ -rf
+    rm -rf .git/
 
     # Check if the first argument is '-s'
     if test (count $argv) -gt 0
@@ -46,9 +46,9 @@ function nsync
             nix flake update --flake .
         else
             echo "Invalid argument"
-            echo "Removing copy"
-            rm $HOME/nixos_config_without_git/ -rf
-            echo "Move back to initial directory"
+            echo "Removing copy..."
+            rm -rf $HOME/nixos_config_without_git/
+            echo "Moving back to initial directory..."
             cd $initial_dir
             return
         end
@@ -57,10 +57,10 @@ function nsync
     echo "Rebuilding..."
     doas nixos-rebuild switch --flake .
 
-    echo "Removing copy"
-    rm $HOME/nixos_config_without_git/ -rf
+    echo "Removing copy..."
+    rm -rf $HOME/nixos_config_without_git/
 
-    echo "Move back to initial directory"
+    echo "Moving back to initial directory..."
     cd $initial_dir
 end
 
