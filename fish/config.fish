@@ -22,13 +22,27 @@ function h
 end
 
 function nsync
+    set initial_dir $PWD
+
     # Avoids multiple arguments
     if test (count $argv) -gt 1
         echo "Too many arguments"
         return
     end
 
-    set initial_dir $PWD
+    # Check if the first argument is '-s'
+    if test (count $argv) -gt 0
+        if test "$argv[1]" = -s
+            echo "Updating..."
+            cd $HOME/nixos_config/
+            nix flake update
+        else
+            echo "Invalid argument"
+            echo "Moving back to initial directory..."
+            cd $initial_dir
+            return
+        end
+    end
 
     echo "Copying..."
     cp -r $HOME/nixos_config/ $HOME/nixos_config_without_git
@@ -38,21 +52,6 @@ function nsync
 
     echo "Removing .git"
     rm -rf .git/
-
-    # Check if the first argument is '-s'
-    if test (count $argv) -gt 0
-        if test "$argv[1]" = -s
-            echo "Updating..."
-            nix flake update
-        else
-            echo "Invalid argument"
-            echo "Removing copy..."
-            rm -rf $HOME/nixos_config_without_git/
-            echo "Moving back to initial directory..."
-            cd $initial_dir
-            return
-        end
-    end
 
     echo "Rebuilding..."
     doas nixos-rebuild switch --flake .
