@@ -17,3 +17,11 @@ name = "python"
 # language-servers = [ "pyright"]
 auto-format = true
 formatter = {command = 'black', args = ["--quiet", "-"]}
+
+[[language]]
+name = "json"
+auto-format = true
+
+[[language]]
+name = "toml"
+auto-format = true
