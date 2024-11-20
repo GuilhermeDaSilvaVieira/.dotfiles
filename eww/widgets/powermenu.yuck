@@ -107,7 +107,7 @@
         _buttons
         :shutdown "poweroff"
         :reboot "reboot"
-        :suspend "systemctl hibernate"
+        :suspend "systemctl suspend -i"
         :logout "loginctl kill-session self"
         :shutdown_icon "󰐥"
         :reboot_icon "󰜉"
