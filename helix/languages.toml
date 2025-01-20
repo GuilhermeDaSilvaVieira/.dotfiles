@@ -1,4 +1,8 @@
 [[language]]
+name = "dart"
+auto-format = true
+
+[[language]]
 name = "rust"
 auto-format = true
 # config.check.command = "clippy"
