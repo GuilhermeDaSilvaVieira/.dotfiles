@@ -18,9 +18,17 @@ indent = { tab-width = 2, unit = "  " }
 
 [[language]]
 name = "python"
-# language-servers = [ "pyright"]
+language-servers = [ "basedpyright", "ruff"]
 auto-format = true
-formatter = {command = 'black', args = ["--quiet", "-"]}
+formatter = {command = "black", args = ["--quiet", "-"]}
+
+[language-server.basedpyright.config.python.analysis]
+typeCheckingMode = "basic"
+
+# if you choose `ruff` itself
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
 
 [[language]]
 name = "json"
