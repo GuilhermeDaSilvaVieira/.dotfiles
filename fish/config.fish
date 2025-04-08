@@ -65,6 +65,7 @@ end
 
 fish_add_path $HOME/.cargo/bin/
 fish_add_path $HOME/.npm-global/bin/
+fish_add_path $HOME/.pub-cache/bin/
 
 set fish_greeting
 
