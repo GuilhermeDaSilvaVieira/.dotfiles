@@ -67,6 +67,10 @@ fish_add_path $HOME/.cargo/bin/
 fish_add_path $HOME/.npm-global/bin/
 fish_add_path $HOME/.pub-cache/bin/
 
+set -Ua fish_user_paths /opt/android-sdk/cmdline-tools/latest/bin
+set -U ANDROID_SDK_ROOT /opt/android-sdk
+set -U JAVA_HOME /usr/lib/jvm/java-17-openjdk
+
 set fish_greeting
 
 # Starship Prompt
