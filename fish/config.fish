@@ -29,6 +29,9 @@ set -Ua fish_user_paths /opt/android-sdk/cmdline-tools/latest/bin
 set -U ANDROID_SDK_ROOT /opt/android-sdk
 set -U JAVA_HOME /usr/lib/jvm/java-17-openjdk
 
+set -U EDITOR helix
+set -U VISUAL helix
+
 set fish_greeting
 
 # Starship Prompt
