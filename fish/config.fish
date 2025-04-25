@@ -5,14 +5,6 @@ end
 alias l "eza -lag --sort=type"
 alias lt "eza --tree"
 
-function v
-    if test -n "$argv"
-        nvim $argv
-    else
-        nvim (fzf)
-    end
-end
-
 function h
     if test -n "$argv"
         helix $argv
@@ -25,12 +17,14 @@ fish_add_path $HOME/.cargo/bin/
 fish_add_path $HOME/.npm-global/bin/
 fish_add_path $HOME/.pub-cache/bin/
 
-set -Ua fish_user_paths /opt/android-sdk/cmdline-tools/latest/bin
-set -U ANDROID_SDK_ROOT /opt/android-sdk
-set -U JAVA_HOME /usr/lib/jvm/java-17-openjdk
+if test "$USER" = franky
+    set -gx ANDROID_HOME $HOME/Android/Sdk/
+    set -gx CHROME_EXECUTABLE /usr/bin/chromium
+    mise activate fish | source
+end
 
-set -U EDITOR helix
-set -U VISUAL helix
+set -gx EDITOR helix
+set -gx VISUAL helix
 
 set fish_greeting
 
