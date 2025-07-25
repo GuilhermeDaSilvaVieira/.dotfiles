@@ -35,7 +35,7 @@ set -gx LIBVA_DRIVER_NAME = nvidia
 set -gx XDG_SESSION_TYPE = wayland
 set -gx GBM_BACKEND = nvidia-drm
 set -gx __GLX_VENDOR_LIBRARY_NAME = nvidia
-set -gx ELECTRON_OZONE_PLATFORM_HINT = auto
+set -gx ELECTRON_OZONE_PLATFORM_HINT = wayland
 set -gx NVD_BACKEND direct
 
 set fish_greeting
