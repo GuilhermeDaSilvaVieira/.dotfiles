@@ -196,4 +196,4 @@ riverctl focus-follows-cursor normal
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
-riverctl spawn "rivertile -view-padding 0 -outer-padding 0"
+rivertile -view-padding 0 -outer-padding 0 &
