@@ -52,12 +52,12 @@ riverctl map normal Super+Shift Comma send-to-output previous
 riverctl map normal Super Return zoom
 
 # Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
-riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
-riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+riverctl map normal Super H send-layout-cmd filtile "main-ratio -10"
+riverctl map normal Super L send-layout-cmd filtile "main-ratio +10"
 
 # Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
-riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
-riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count -1"
+riverctl map normal Super+Shift H send-layout-cmd filtile "main-count +1"
+riverctl map normal Super+Shift L send-layout-cmd filtile "main-count -1"
 
 # Super+Alt+{H,J,K,L} to move views
 riverctl map normal Super+Alt H move left 100
@@ -131,10 +131,10 @@ riverctl map normal Super Space toggle-float
 riverctl map normal Super F toggle-fullscreen
 
 # Super+{W,D,S,A} to change layout orientation
-riverctl map normal Super W send-layout-cmd rivertile "main-location top"
-riverctl map normal Super D send-layout-cmd rivertile "main-location right"
-riverctl map normal Super S send-layout-cmd rivertile "main-location bottom"
-riverctl map normal Super A send-layout-cmd rivertile "main-location left"
+riverctl map normal Super W send-layout-cmd filtile "main-location top"
+riverctl map normal Super D send-layout-cmd filtile "main-location right"
+riverctl map normal Super S send-layout-cmd filtile "main-location bottom"
+riverctl map normal Super A send-layout-cmd filtile "main-location left"
 
 # Cycle through tags
 # riverctl map normal Super bracketleft spawn "cycle-focused-tags previous 6"
@@ -195,5 +195,7 @@ riverctl focus-follows-cursor normal
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
-riverctl default-layout rivertile
-rivertile -view-padding 0 -outer-padding 0 &
+riverctl default-layout filtile
+filtile \
+view-padding 0, \
+outer-padding 0 &
