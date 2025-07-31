@@ -7,8 +7,8 @@
 
 # Auto Start
 riverctl spawn "mako"
-killall "wlsunset"
-riverctl spawn "wlsunset -t 3400 -T 3401"
+# killall "wlsunset"
+# riverctl spawn "wlsunset -t 3400 -T 3401"
 riverctl spawn "eww daemon"
 riverctl spawn "eww open bar"
 killall "swaybg"
