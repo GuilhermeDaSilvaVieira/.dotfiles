@@ -26,8 +26,9 @@ end
 set -gx EDITOR helix
 set -gx VISUAL helix
 set -gx FZF_DEFAULT_COMMAND "fd -H"
-set -gx NOUVEAU_USE_ZINK 1
+# set -gx NOUVEAU_USE_ZINK 1
 # set -gx LIBSEAT_BACKEND logind
+# set -gx DISPLAY ":1"
 # set -gx WLR_NO_HARDWARE_CURSORS = 1
 # set -gx WLR_RENDERER vulkan
 # set -gx QT_QPA_PLATFORM = "wayland;xcb"
