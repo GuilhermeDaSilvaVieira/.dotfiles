@@ -7,7 +7,6 @@
 
 # Screen protection
 swayidle -w \
-  timeout 110 'notify-send "Locking soon..."' \
   timeout 120 'swaylock -f' \
   timeout 121 'wlopm --off "*" ' \
   resume 'wlopm --on "*" '
