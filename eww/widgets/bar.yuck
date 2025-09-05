@@ -71,7 +71,7 @@
     (
         button
         :onclick "eww open calendar --toggle"
-        "${time.hour}:${time.minute}:${time.second}"
+        "${day}-${month}-${year} ${time.hour}:${time.minute}:${time.second}"
     )
   )
 )
