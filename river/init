@@ -5,12 +5,6 @@
 
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
-# Screen protection
-swayidle -w \
-  timeout 120 'swaylock -f' \
-  timeout 121 'wlopm --off "*" ' \
-  resume 'wlopm --on "*" '
-
 # Auto Start
 riverctl spawn "mako"
 # killall "wlsunset"
@@ -202,3 +196,9 @@ riverctl default-layout filtile
 filtile \
 view-padding 0, \
 outer-padding 0 &
+
+# Screen protection
+swayidle -w \
+  timeout 120 'swaylock -f' \
+  timeout 121 'wlopm --off "*" ' \
+  resume 'wlopm --on "*" '
