@@ -5,6 +5,13 @@
 
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
+# Screen protection
+swayidle -w \
+  timeout 110 'notify-send "Locking soon..."' \
+  timeout 120 'swaylock -f' \
+  timeout 121 'wlopm --off "*" ' \
+  resume 'wlopm --on "*" '
+
 # Auto Start
 riverctl spawn "mako"
 # killall "wlsunset"
@@ -159,12 +166,9 @@ riverctl map passthrough Super F11 enter-mode normal
 for mode in normal locked
 do
     # Control pipewire audio volume with wirepumbler
-    riverctl map $mode None XF86AudioRaiseVolume spawn 'wpctl set-volume -l 1 @DEFAULT_SINK@ 2%+'
-    riverctl map $mode Super Equal               spawn 'wpctl set-volume -l 1 @DEFAULT_SINK@ 2%+'
-    riverctl map $mode None XF86AudioLowerVolume spawn 'wpctl set-volume -l 1 @DEFAULT_SINK@ 2%-'
-    riverctl map $mode Super Minus               spawn 'wpctl set-volume -l 1 @DEFAULT_SINK@ 2%-'
+    riverctl map $mode None XF86AudioRaiseVolume spawn 'wpctl set-volume -l 1 @DEFAULT_SINK@ 5%+'
+    riverctl map $mode None XF86AudioLowerVolume spawn 'wpctl set-volume -l 1 @DEFAULT_SINK@ 5%-'
     riverctl map $mode None XF86AudioMute        spawn 'wpctl set-mute @DEFAULT_SINK@ toggle'
-    riverctl map $mode Super Slash               spawn 'wpctl set-mute @DEFAULT_SINK@ toggle'
 done
 
 # Set background and border color
