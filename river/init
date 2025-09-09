@@ -52,8 +52,8 @@ riverctl map normal Super+Shift Comma send-to-output previous
 riverctl map normal Super Return zoom
 
 # Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
-riverctl map normal Super H send-layout-cmd filtile "main-ratio -10"
-riverctl map normal Super L send-layout-cmd filtile "main-ratio +10"
+riverctl map normal Super H send-layout-cmd filtile "main-ratio -5"
+riverctl map normal Super L send-layout-cmd filtile "main-ratio +5"
 
 # Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
 riverctl map normal Super+Shift H send-layout-cmd filtile "main-count +1"
