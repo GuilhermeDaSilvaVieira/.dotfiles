@@ -198,6 +198,7 @@ view-padding 0, \
 outer-padding 0 &
 
 # Screen protection
+killall "swayidle"
 swayidle -w \
   timeout 120 'swaylock -f' \
   timeout 121 'wlopm --off "*" ' \
