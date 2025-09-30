@@ -1,21 +1,24 @@
-
 (
-  deflisten username
+  defpoll username
+  :interval "1s"
   "whoami"
 )
 
 (
-  deflisten day
+  defpoll day
+  :interval "1s"
   "date '+%d'"
 )
 
 (
-  deflisten month
+  defpoll month
+  :interval "1s"
   "date '+%m'"
 )
 
 (
-  deflisten year
+  defpoll year
+  :interval "1s"
   "date '+%Y'"
 )
 
