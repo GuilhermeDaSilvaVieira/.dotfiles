@@ -1,13 +1,5 @@
 # Font Configuration
-font_family      FiraCodeNerdFont
-bold_font        auto
-italic_font      auto
-bold_italic_font auto
-font_size 20
-disable_ligatures never
-
-# Don't close without notice
-confirm_os_window_close 1
+font_size 12.0
 
 # Window Configuration
 window_padding_width 12

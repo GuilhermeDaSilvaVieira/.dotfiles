@@ -45,5 +45,11 @@ ln -s ~/.dotfiles/yazi/ ~/.config/
 rm ~/.config/zathura
 ln -s ~/.dotfiles/zathura/ ~/.config/
 
+rm ~/.config/niri
+ln -s ~/.dotfiles/niri/ ~/.config/
+
+rm ~/.config/DankMaterialShell
+ln -s ~/.dotfiles/DankMaterialShell/ ~/.config/
+
 rm ~/media
 ln -s /run/media/$USER/ ~/media
