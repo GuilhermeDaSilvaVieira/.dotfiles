@@ -52,6 +52,7 @@ rm ~/.config/DankMaterialShell
 ln -s ~/.dotfiles/DankMaterialShell/ ~/.config/
 
 mkdir -p ~/.zen/*.default/chrome/
+touch ~/.zen/*.default/chrome/userChrome.css
 ln -sf ~/.config/DankMaterialShell/zen.css ~/.zen/*.default/chrome/userChrome.css
 
 rm ~/media
