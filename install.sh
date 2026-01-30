@@ -51,9 +51,7 @@ ln -s ~/.dotfiles/niri/ ~/.config/
 rm ~/.config/DankMaterialShell
 ln -s ~/.dotfiles/DankMaterialShell/ ~/.config/
 
-mkdir -p ~/.zen/*.default/chrome/
-touch ~/.zen/*.default/chrome/userChrome.css
-ln -sf ~/.config/DankMaterialShell/zen.css ~/.zen/*.default/chrome/userChrome.css
+ln -sf ~/.dotfiles/DankMaterialShell/zen.css ~/.zen/*.default/chrome/userChrome.css
 
 rm ~/media
 ln -s /run/media/$USER/ ~/media
