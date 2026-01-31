@@ -16,7 +16,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Toggle Spotlight: dms" { spawn-sh "dms ipc call spotlight toggle"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: dms" { spawn-sh "dms ipc call lock lock"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: dms" allow-when-locked=true { spawn-sh "dms ipc call lock lock"; }
     Mod+B hotkey-overlay-title="Open a Browser: zen-browser" { spawn "zen-browser"; }
     Mod+P hotkey-overlay-title="Open a Terminal File Manager: yazi" { spawn-sh "kitty -e fish -c yazi"; }
 
