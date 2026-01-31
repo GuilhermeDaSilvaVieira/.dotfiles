@@ -26,6 +26,7 @@ end
 set -gx EDITOR helix
 set -gx VISUAL helix
 set -gx FZF_DEFAULT_COMMAND "fd -H"
+set -gx QSG_RPAINTER_BACKEND software
 # set -gx NOUVEAU_USE_ZINK 1
 # set -gx LIBSEAT_BACKEND logind
 # set -gx DISPLAY ":1"
