@@ -51,6 +51,7 @@ ln -s ~/.dotfiles/niri/ ~/.config/
 rm ~/.config/DankMaterialShell
 ln -s ~/.dotfiles/DankMaterialShell/ ~/.config/
 
+for d in ~/.zen/*.default/chrome/ ; do touch "${d}userChrome.css" ; done
 ln -sf ~/.dotfiles/DankMaterialShell/zen.css ~/.zen/*.default/chrome/userChrome.css
 
 rm ~/media
