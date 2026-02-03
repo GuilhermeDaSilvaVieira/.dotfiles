@@ -28,7 +28,7 @@
   "nightModeEnabled": false,
   "animationSpeed": 1,
   "customAnimationDuration": 200,
-  "wallpaperFillMode": "Fill",
+  "wallpaperFillMode": "Stretch",
   "blurredWallpaperLayer": false,
   "blurWallpaperOnOverview": false,
   "showLauncherButton": true,
@@ -273,7 +273,7 @@
   "notificationPopupPosition": 0,
   "notificationHistoryEnabled": true,
   "notificationHistoryMaxCount": 200,
-  "notificationHistoryMaxAgeDays": 7,
+  "notificationHistoryMaxAgeDays": 0,
   "notificationHistorySaveLow": true,
   "notificationHistorySaveNormal": true,
   "notificationHistorySaveCritical": true,
@@ -297,7 +297,7 @@
     "suspend",
     "restart"
   ],
-  "powerMenuDefaultAction": "logout",
+  "powerMenuDefaultAction": "suspend",
   "powerMenuGridLayout": false,
   "customPowerActionLock": "",
   "customPowerActionLogout": "",
@@ -311,7 +311,9 @@
   "updaterTerminalAdditionalParams": "",
   "displayNameMode": "model",
   "screenPreferences": {
-    "wallpaper": []
+    "wallpaper": [
+      "all"
+    ]
   },
   "showOnLastDisplay": {},
   "niriOutputSettings": {},
@@ -343,6 +345,10 @@
         },
         {
           "id": "privacyIndicator",
+          "enabled": true
+        },
+        {
+          "id": "clipboard",
           "enabled": true
         },
         {
@@ -512,10 +518,10 @@
           "y": 45.70703125
         },
         "_synced": {
-          "x": 0.9481201171875,
+          "x": 0.949658203125,
           "y": 0,
-          "width": 199.21875,
-          "height": 682.078125
+          "width": 193.3125,
+          "height": 812.55859375
         }
       }
     }
