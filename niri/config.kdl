@@ -293,10 +293,10 @@ debug {
 // Override to disable super+tab
 recent-windows {
     binds {
-        Alt+Tab         { next-window scope="output"; }
-        Alt+Shift+Tab   { previous-window scope="output"; }
-        Alt+grave       { next-window filter="app-id"; }
-        Alt+Shift+grave { previous-window filter="app-id"; }
+        Alt+Tab hotkey-overlay-title="Next Window: Output" { next-window scope="output"; }
+        Alt+Shift+Tab hotkey-overlay-title="Previous Window: Output" { previous-window scope="output"; }
+        Mod+Tab hotkey-overlay-title="Next Window: App ID" { next-window filter="app-id"; }
+        Mod+Shift+Tab hotkey-overlay-title="Previous Window: App ID" { previous-window filter="app-id"; }
     }
 }
 
