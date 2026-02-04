@@ -371,7 +371,11 @@
         },
         {
           "id": "controlCenterButton",
-          "enabled": true
+          "enabled": true,
+          "showAudioPercent": true,
+          "showMicIcon": false,
+          "showMicPercent": true,
+          "showPrinterIcon": false
         }
       ],
       "spacing": 0,
